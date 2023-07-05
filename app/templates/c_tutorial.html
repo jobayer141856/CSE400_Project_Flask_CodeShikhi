@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Tutorials</title>
+    <!-- bootstrap 5 css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
+   <!-- custom css -->
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand d-flex flex-column align-item-start" id="sidebar">
+        <a href="#" class="navbar-brand text-light mt-5">
+            <div class="display-5 font-weight-bold"><h5>সি প্রোগ্রামিং টিউটোরিয়াল</h5>
+            </div>
+        </a>
+        <ul class="navbar-nav d-flex flex-column mt-5 w-100" id="nav">
+            <li class="nav-item w-100">
+                <a href="/" class="nav-link text-light pl-4">Home</a>
+            </li>
+            <li class="nav-item w-100">
+                <a href="" class="nav-link text-light pl-4" id="mySyntex">Syntex</a>
+            </li>
+            <li class="nav-item w-100">
+                <a href="variable.html" class="nav-link text-light pl-4">Variable</a>
+            </li>
+            <li class="nav-item w-100">
+                <a href="#" class="nav-link text-light pl-4">Datatype</a>
+            </li>
+            <li class="nav-item w-100">
+                <a href="#" class="nav-link text-light pl-4">Operations</a>
+            </li>
+            <li class="nav-item w-100">
+                <a href="#" class="nav-link text-light pl-4">Booleans</a>
+            </li>
+            
+            <li class="nav-item w-100">
+                <a href="#" class="nav-link text-light pl-4">If-else</a>
+            </li>
+            <li class="nav-item w-100">
+                <a href="#" class="nav-link text-light pl-4">Switch</a>
+            </li>
+            <li class="nav-item w-100">
+                <a href="#" class="nav-link text-light pl-4">while loop</a>
+            </li>
+            <li class="nav-item w-100">
+                <a href="#" class="nav-link text-light pl-4">for loop</a>
+            </li>
+            <li class="nav-item w-100">
+                <a href="#" class="nav-link text-light pl-4">break/continue</a>
+            </li>
+            <li class="nav-item w-100">
+                <a href="#" class="nav-link text-light pl-4">arrays</a>
+            </li>
+            <li class="nav-item w-100">
+                <a href="#" class="nav-link text-light pl-4">string</a>
+            </li>
+            <li class="nav-item w-100">
+                <a href="#" class="nav-link text-light pl-4">User input</a>
+            </li>
+            <li class="nav-item w-100">
+                <a href="#" class="nav-link text-light pl-4">Function</a>
+            </li>
+        </ul>
+    </nav>
+    <section class="p-4 my-container">
+        <button class="btn my-4" id="menu-btn">Chapters</button>
+        <div class="p-4 my-container1"> 
+        <h2>সি প্রোগ্রামিং কি?</h2>
+        <p class="text-dark"><h5>C হল একটি প্রোগ্রামিং ভাষা যা বহুমুখী এবং জনপ্রিয় উভয়ই যা ডেভেলপাররা অ্যাপ্লিকেশন এবং প্রযুক্তি তৈরি এবং বজায় রাখতে ব্যবহার করে। উদাহরণস্বরূপ, আপনি অপারেটিং সিস্টেম, জটিল প্রোগ্রাম এবং অ্যাপ্লিকেশন এবং ডাটাবেসের জন্য কোড লিখতে এটি ব্যবহার করতে পারেন। জনপ্রিয় সি++ ভাষা সহ সি প্রোগ্রামিং এর বিভিন্ন বৈচিত্র রয়েছে। সি একটি অত্যন্ত দক্ষ এবং সরল প্রোগ্রামিং ভাষা যা মূলত অপারেটিং সিস্টেম লিখতে সাহায্য করে। এটি মেমরিতে নিম্ন-স্তরের অ্যাক্সেস, একটি পরিষ্কার এবং সংক্ষিপ্ত সিনট্যাক্স এবং একটি মোটামুটি ছোট কীওয়ার্ড সেট করার ক্ষমতা প্রদান করে।</h5></p>
+        <p class="text-dark"><h5>উপরন্তু, একটি সিস্টেমের জন্য C এর সোর্স কোড প্রোগ্রাম আচরণের পার্থক্য ছাড়াই অন্য সিস্টেম আর্কিটেকচারে সহজেই পোর্ট করা যেতে পারে। যদিও C কে ইউনিক্স অপারেটিং সিস্টেমের জন্য একটি প্রোগ্রামিং ভাষা হিসাবে তৈরি করা হয়েছিল, এটিতে এখন অনেক কম্পাইলার রয়েছে যা আপনাকে প্রায় সমস্ত হার্ডওয়্যার প্ল্যাটফর্ম এবং অপারেটিং সিস্টেম জুড়ে এটি ব্যবহার করার অনুমতি দেয়। যখন এটি প্রথম জনপ্রিয় হতে শুরু করে, আমেরিকান ন্যাশনাল স্ট্যান্ডার্ড ইনস্টিটিউট, যা ANSI নামেও পরিচিত, প্রোগ্রামিং ভাষার জন্য একটি বাণিজ্যিক মান তৈরি করে। তারপর থেকে, এটি আন্তর্জাতিক মান সংস্থা দ্বারা অনুমোদিত হয়েছে এবং এখন কখনও কখনও "ANSI C" হিসাবে উল্লেখ করা হয়।</h5></p>
+        <h2 >What is C programming?</h2>
+           <p class="text-dark"> 
+            <h5>C is a programming language that is both versatile and popular that developers use to create and maintain applications and technologies. For example, you can use it to write code for operating systems, complex programs and applications, and databases. There are several variations of C programming, including the popular C++ language. C is a very efficient and simple programming language that mainly helps to write operating systems. It provides low-level access to memory, a clean and concise syntax, and the ability to set a fairly small keyword.</h5>
+           </p>
+           <p class="text-dark"> <h5>
+            Additionally, C source code for one system can be easily ported to another system architecture without differences in program behavior. Although C was developed as a programming language for the Unix operating system, it now has many compilers that allow you to use it across almost all hardware platforms and operating systems. When it first became popular, the American National Standards Institute, also known as ANSI, created a commercial standard for programming languages. Since then, it has been approved by the International Standards Organization and is now sometimes referred to as "ANSI C".
+           </h5> </p>
+        </div>
+    </section>
+    
+    <!-- bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.min.js" integrity="sha384-5h4UG+6GOuV9qXh6HqOLwZMY4mnLPraeTrjT5v07o347pj6IkfuoASuGBhfDsp3d" crossorigin="anonymous"></script>
+    <!-- custom js -->
+    <script src="{{ url_for('static', filename='js/c_t.js') }}"></script>
+    <script>
+        var menu_btn = document.querySelector("#menu-btn")
+        var sidebar = document.querySelector("#sidebar")
+        var container = document.querySelector(".my-container")
+        menu_btn.addEventListener("click", () => {
+            sidebar.classList.toggle("active-nav")
+            container.classList.toggle("active-cont")
+        })
+    </script>
+</body>
+</html>

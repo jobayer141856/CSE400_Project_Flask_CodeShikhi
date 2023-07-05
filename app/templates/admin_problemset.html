@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin_Problemset</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+</head>
+<body>
+    {%include "admin_nav.html"%}
+    <h1 class="text-center m-5 text-lg"><b><i>Problem List</i></b></h1>
+
+    
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg m-12">
+  <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+    <form action="/admin_problemset" method="post">
+      {%if len_list == 0%}
+      <div>
+      <h3> Ooops..!! Sorry ...Currently here no problems.</h3>
+      <br>
+      <h6>Please add problems....User are waiting ....!!!!!!!!</h6>
+      </div>
+      {%else%}
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <tr>
+              <th scope="col" class="px-6 py-3">
+                  Title
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  Action
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  Action
+              </th>
+          </tr>
+      </thead>
+      <tbody>
+        {% for i in range(len_list)%}
+          <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                <button type="submit" name="id" value="{{prob_list[i][0]}}">{{prob_list[i][1]}}</button>
+              </th>
+              <td class="px-6 py-4">
+                <Button  type="submit"><a class="text-decoration-none text-dark" href="/update/{{title_id[i]}}">Edit</a></Button>
+              </td>
+              <td class="px-6 py-4">
+                <Button  type="submit"><a class="text-decoration-none text-dark" href="/delete/{{title_id[i]}}">Delete</a></Button>
+              </td>
+          </tr>
+      </tbody>
+      {%endfor%}
+      {%endif%}
+    </form>
+  </table>
+</div>
+    <h5 class = "text-center m-5"> Do you want to add problem?. If it is yes then <a href="/add_problem"><b>click</b></a> here for add.</h5>
+  
+    <div class="container d-flex justify-content-center m-5"></div>
+<div class=" flex flex-col items-center m-5">
+    {% if is_post %}
+        {%if is_prob %}
+            <div class=" flex flex-col items-center m-5 ">
+                <p> <b>Title:</b> {{probs[0]}} <br> <b>Problem:</b> {{probs[1]}} <br> <b>Input:</b> {{probs[2]}} <br> <b>Output:</b> {{probs[3]}}</p>
+                </div>
+        {%endif%}
+    {%endif%}
+</div>
+    {%include "footer.html"%}
+    <script src="https://unpkg.com/flowbite@1.5.1/dist/flowbite.js"></script>
+</body>
+</html>
