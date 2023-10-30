@@ -34,7 +34,6 @@ def admin_problemset():
             is_prob = True
     return render_template("admin_problemset.html", **locals())
 
-
 @app.route('/add_problem', methods=['GET', "POST"])
 def admin_add_problem():
     if request.method == "POST":
@@ -72,7 +71,6 @@ def edit(s):
         return redirect(url_for('admin_problemset'))
 
     return render_template("admin_update_problem.html", **locals())
-
 
 @app.route('/delete/<string:s>', methods=['GET', "POST"])
 def delete(s):
