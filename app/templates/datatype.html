@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name=------ort" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial-</title>
+    <!-- bootstrap 5 css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
+    <!-- custom css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- <meta http-equiv="refresh" content="1"> -->
+</head>
+
+<body>
+  {% include "nav_tutorial.html" %}
+ 
+    <section class="p-4 my-container">
+        <button class="btn my-4" id="menu-btn">Chapters</button>
+        <p><h3>সি-তে ডেটাটাইপ কী?</h3></p>
+        <p>
+            <h5>ভেরিয়েবল যে ধরনের ডেটা সংরক্ষণ করতে পারে তা নির্দিষ্ট করে ডেটাটাইপ ,যেমন পূর্ণসংখ্যা, অক্ষর ইত্যাদি।</h5>
+        </p>
+        <div class="example">
+             <h3>Example</h3>
+             <div class="code-ex">
+                
+                <p><font color="green">//Create Variable</font></p>
+                <font color="blue">int</font> myNum=5; <font color="green"> &nbsp; &nbsp;  &nbsp;   // intiger variable</font>
+                <br>
+                <font color="blue">float</font> myFnum=10.5;  &nbsp; &nbsp;  &nbsp; <font color="green"> // floating point variable</font>
+                <br>
+                <font color="blue">char</font> ch='M';  &nbsp; &nbsp;  &nbsp; <font color="green">  // character variable</font> 
+                <br>
+                <br>
+                <font color="green">// Print variables</font>
+                <br>
+                printf(<font color="red">"%d"</font>,myNum);
+                <br>
+                printf(<font color="red">"%f"</font>,myFnum);
+                <br>
+                printf(<font color="red">"%c"</font>,ch);
+            
+             </div>
+        </div>
+        <br>
+        <h3>Basic data types</h3>
+        <h5>ডেটা টাইপ ভেরিয়েবল সংরক্ষণ করবে তথ্যের আকার এবং ধরন নির্দিষ্ট করে।</h5>
+        <br>
+        <h6>এই টিউটোরিয়ালে, আমরা সবচেয়ে মৌলিক বিষয়গুলিতে ফোকাস করব:</h6>
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                
+                <th scope="col">Datatype</th>
+                <th scope="col">Size</th>
+                <th scope="col">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><font color='red'>int</font></td>
+                <td>2 or 4 bytes</td>
+                <td><h6>দশমিক ছাড়া পূর্ণ সংখ্যা সংরক্ষণ করে</h6></td>
+              </tr>
+              <tr>
+                 <td><font color='red'>float</font></td>
+                <td>4 bytes</td>
+                <td><h6>এক বা একাধিক দশমিক সমন্বিত ভগ্নাংশ সংখ্যা সংরক্ষণ করে। 6-7 দশমিক সংখ্যা সংরক্ষণের জন্য যথেষ্ট</h6></td>
+              </tr>
+              <tr>
+                 <td><font color='red'>double</font></td>
+                <td>8 bytes</td>
+                <td><h6>এক বা একাধিক দশমিক সমন্বিত ভগ্নাংশ সংখ্যা সংরক্ষণ করে। 15 দশমিক সংখ্যা সংরক্ষণের জন্য যথেষ্ট</h6></td>
+              </tr>
+              <tr>
+                <td><font color='red'>char</font></td>
+               <td>1 byte</td>
+               <td>একটি একক অক্ষর/অক্ষর/সংখ্যা বা ASCII মান সঞ্চয় করে</td>
+             </tr>
+            </tbody>
+          </table>
+          <br>
+          <h3>Basic Format Specifiers</h3>
+          <br>
+          <h6>প্রতিটি ডাটা টাইপের জন্য আলাদা ফরম্যাট স্পেসিফায়ার আছে। এখানে তাদের কিছু:</h6>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                
+                <th scope="col">Format Specifier</th>
+                <th scope="col">Datatype</th>
+               </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><font color='red'>%d</font> or<font color='red'>%i</font> </td>
+                <td><font color='red'>int</font></td>
+               </tr>
+              <tr>
+                 <td><font color='red'>%f</font></td>
+                 <td><font color='red'>float</font></td>
+               </tr>
+              <tr>
+                 <td><font color='red'>%lf</font></td>
+                 <td><font color='red'>double</font></td>
+               </tr>
+              <tr>
+                <td><font color='red'>%c</font></td>
+                <td><font color='red'>char</font></td>
+            </tr>
+            </tbody>
+          </table>
+          <h3>Set Decimal Precision</h3>
+          <p>You have probably already noticed that if you print a floating point number, the output will show many digits after the decimal point:</p>
+          <div class="example">
+            <h3>Example</h3>
+            <div class="code-ex">
+                <font color="blue"> float</font> myFnum = <font color="red">3.5;</font>
+                <br>
+                <font color="blue"> double</font> mydoublenum = <font color="red">19.5;</font>
+                <br>
+                <br>
+                printf("<font color='red'>%f\n</font>", myFnum);<font color='green'>&nbsp;&nbsp;&nbsp;      // Outputs 3.500000</font>
+                <br>
+                printf("<font color='red'>%lf\n</font>", mydoublenum);<font color='green'>&nbsp;&nbsp;&nbsp;        // Outputs 19.500000</font>
+            </div>
+          </div>
+          <br>
+          <p>If you want to remove the extra zeros (set decimal precision), you can use a dot (.) followed by a number that specifies how many digits that should be shown after the decimal point:</p>
+         <div class="example">
+            <h3>Example</h3>
+            <div class="code-ex">
+                <font color="blue">float</font> myFnum =<font color="red"> 3.5;</font>
+                <br>
+                <br>
+                printf("<font color='red'>%f\n</font>", myFnum);<font color='green'>&nbsp;&nbsp;&nbsp; // Default will show 6 digits after the decimal point</font>
+                <br>
+                printf("<font color='red'>%.1f\n</font>", myFnum);<font color='green'>&nbsp;&nbsp;&nbsp; // this will show 1 digits after the decimal point</font>
+                <br>
+                printf("<font color='red'>%.2f\n</font>", myFnum);<font color='green'>&nbsp;&nbsp;&nbsp; // this will show 2 digits after the decimal point</font>
+                <br>
+                printf("<font color='red'>%.4f\n</font>", myFnum);<font color='green'>&nbsp;&nbsp;&nbsp; // this will show 4 digits after the decimal point</font>
+
+            </div>
+         </div>
+         <div class="example">
+            <h3>Exercise</h3>
+            <p>নিম্নলিখিত ভেরিয়েবলের জন্য সঠিক ডেটা টাইপ যোগ করুন:</p>
+             <div class="code-ex">
+              <input id="e1" maxlength="3" style="width:35px">  myNum = 5;
+              <br>
+              <input id="e2" maxlength="5" style="width:55px">  myfNum = 5.99;
+              <br>
+              <input id="e3" maxlength="4" style="width:45px">  mychar = 'D';
+            </div>
+            <br>
+            <button type="button" class="btn btn-primary" onclick="check()">Submit</button>
+         </div>
+         <br>
+    </section>
+ 
+
+    <!-- bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.min.js" integrity="sha384-5h4UG+6GOuV9qXh6HqOLwZMY4mnLPraeTrjT5v07o347pj6IkfuoASuGBhfDsp3d" crossorigin="anonymous"></script>
+    <!-- custom js -->
+    <script>
+        var menu_btn = document.querySelector("#menu-btn")
+        var sidebar = document.querySelector("#sidebar")
+        var container = document.querySelector(".my-container")
+        menu_btn.addEventListener("click", () => {
+            sidebar.classList.toggle("active-nav")
+            container.classList.toggle("active-cont")
+        })
+        function check(){
+            var txt1=document.getElementById("e1").value;
+            var txt2=document.getElementById("e2").value;
+            var txt3=document.getElementById("e3").value;
+            let ok=0;
+           var message=''
+           var alet;
+           if(txt1=="int"&&txt2=="float"&&txt3=="char")ok=1;
+           if(ok)message="Right Answer",alet="success";
+           else message="Wrong Answer",alet="warning";
+           alert(message);
+           
+        }
+    </script>
+</body>
+</html>

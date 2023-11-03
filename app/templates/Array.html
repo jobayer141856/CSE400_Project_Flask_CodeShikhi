@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial</title>
+    <!-- bootstrap 5 css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
+    <!-- custom css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- <meta http-equiv="refresh" content="1"> -->
+</head>
+
+<body>
+    {% include "nav_tutorial.html" %} 
+ 
+    <section class="p-4 my-container">
+        <button class="btn my-4" id="menu-btn">Chapters</button>
+        <p><h3>Arrays </h3></p>
+        <p>
+            <h5>অ্যারেগুলি প্রতিটি মানের জন্য পৃথক ভেরিয়েবল ঘোষণা করার পরিবর্তে একটি একক ভেরিয়েবলে একাধিক মান সংরক্ষণ করতে ব্যবহৃত হয়।।</h5>
+        </p>
+        <img  src="array.png"  class="center">
+        <br>
+
+        <p>যখন আপনি জানেন যে আপনি ঠিক কতবার কোড ব্লকের মাধ্যমে লুপ করতে চান, একটি while লুপের পরিবর্তে for loop ব্যবহার করুন:</p>
+        <p>একটি অ্যারে তৈরি করতে, ডেটা টাইপ (যেমন int) সংজ্ঞায়িত করুন এবং বর্গাকার বন্ধনী [] দ্বারা অ্যারের নাম উল্লেখ করুন।</p>
+        <p>এটিতে মান সন্নিবেশ করতে, কোঁকড়া ধনুর্বন্ধনীর ভিতরে একটি কমা দ্বারা পৃথক তালিকা ব্যবহার করুন:</p>
+        <div class="example">
+             <h3>Example</h3>
+             <div class="code-ex">
+                <p><font color="blue">int</font> myNumbers[] = {<font color="red"> 25, 50, 75, 100 </font>};</p>
+             </div>
+        </div>
+        <br>
+        <p>আমরা এখন একটি ভেরিয়েবল তৈরি করেছি যেখানে চারটি পূর্ণসংখ্যার অ্যারে রয়েছে।</p>
+        <br>
+        <h2>একটি অ্যারের উপাদান অ্যাক্সেস</h2>
+        <br>
+        <p>একটি অ্যারে উপাদান অ্যাক্সেস করতে, এর সূচক (index) নম্বর ব্যবহার করো ।</p>
+        <p>অ্যারে ইনডেক্স 0 দিয়ে শুরু হয়: [0] প্রথম উপাদান। [1] দ্বিতীয় উপাদান, ইত্যাদি |</p>
+        <p>এই বিবৃতিটি myNumbers-এ প্রথম উপাদান [0]-এর মান অ্যাক্সেস করে:</p>
+      <div class="example">
+            <h3>Example</h3>
+            <div class="code-ex">
+                <font color="blue">int</font> myNumbers[] = { <font color="red"> 25, 50, 75, 100 </font>};
+                <br>
+                printf(<font color="maroon">  "%d"</font>, myNumbers[0]);
+                <br>
+                <br>
+                 <font color="green">// Outputs 25</font>
+            </div>
+       </div>
+       <h2>একটি অ্যারে উপাদান পরিবর্তন করুন</h2>
+       <br>
+       <p>একটি নির্দিষ্ট উপাদানের মান পরিবর্তন করতে, সূচক নম্বর ব্যবহার করো :</p>
+        
+         <div class="example">
+            <h3>Example</h3>
+             <div class="code-ex">
+                myNumbers[<font color="red">0</font>] = <font color="red">33</font>;
+   
+            </div>
+         </div>
+        <br>
+        <div class="example">
+            <h3>Example</h3>
+             <div class="code-ex">
+                <font color="blue">int</font> myNumbers[] = { <font color="red"> 25, 50, 75, 100 </font>};
+                <br>
+                myNumbers[<font color="red">0</font>] = <font color="red">33</font>;
+                <br>
+                printf(<font color="maroon">  "%d"</font>, myNumbers[0]);
+                <br>
+                <br>
+                 <font color="green">// Outputs 33 instead of 25</font>
+            </div>
+         </div>
+        
+         <h2>Loop Through an Array</h2>
+         <br>
+         <p>আপনি ফর লুপ দিয়ে অ্যারের উপাদানগুলি অ্যাক্সেস করতে পারেন।</p>
+         <p>নিম্নলিখিত উদাহরণটি myNumbers অ্যারের সমস্ত উপাদানকে আউটপুট করে:</p>
+         <div class="example">
+            <h3>Example</h3>
+             <div class="code-ex"> 
+                <font color="blue"></font> myNumbers[] = {<font color="red"> 25, 50, 75, 100 </font>};
+                <br>
+                int i;
+                <br>
+                <font color="blue">for</font> (i = <font color="red">0</font>; i < <font color="red">4</font> ; i++) {
+                    <br>
+                    printf(<font color="maroon">  "%d"</font>, myNumbers[i]);
+                    <br>
+                }
+
+            </div>
+         </div>
+
+         <h2>অ্যারে সাইজ সেট করুন</h2>
+        <p>অ্যারে তৈরি করার আরেকটি সাধারণ উপায় হল অ্যারের আকার নির্দিষ্ট করা এবং পরে উপাদান যোগ করা:</p>
+        <div class="example">
+            <h3>Example</h3>
+             <div class="code-ex">
+                <font color="green">//Declare an array of four integer</font>
+                <br>
+                <font color="blue">int </font>numbers [4];
+                <br>
+                <br>
+                <font color="green">//Add element</font>
+                <br>
+                myNumbers[<font color="red">0</font>] = <font color="red">25</font>;
+                <br>
+                myNumbers[<font color="red">1</font>] = <font color="red">50</font>;
+                <br>
+                myNumbers[<font color="red">2</font>] = <font color="red">75</font>;
+                <br>
+                myNumbers[<font color="red">3</font>] = <font color="red">100</font>;
+                <br>
+                <br>
+   
+            </div>
+         </div>
+
+            <div class="example">
+                <h3>Exercise</h3>
+                <p><font color="maroon">myNumbers নামক টাইপের একটি অ্যারে তৈরি করুন:</font></p>
+                <div class="code-ex">
+                <input id="i" maxlength="3" style="width:30px ;">&nbsp;&nbsp;<input id="ii" maxlength="9" style="width:120px ;">&nbsp;<input id="iii"  maxlength="1" style="width:20px ;">&nbsp;{25,50,75,100};
+                </div>
+            <button type="button" class="btn btn-primary" onclick="check()">Submit</button>
+         </div>
+    </section>
+ 
+
+    <!-- bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.min.js" integrity="sha384-5h4UG+6GOuV9qXh6HqOLwZMY4mnLPraeTrjT5v07o347pj6IkfuoASuGBhfDsp3d" crossorigin="anonymous"></script>
+    <!-- custom js -->
+    <script>
+        var menu_btn = document.querySelector("#menu-btn")
+        var sidebar = document.querySelector("#sidebar")
+        var container = document.querySelector(".my-container")
+        menu_btn.addEventListener("click", () => {
+            sidebar.classList.toggle("active-nav")
+            container.classList.toggle("active-cont")
+        })
+        function check(){
+            var txt1=document.getElementById("i").value;
+            var txt2=document.getElementById("ii").value;
+            var txt3=document.getElementById("iii").value;
+            let ok=0;
+           var message=''
+           var alet;
+           if(txt1=="int"&&txt2=="myNumbers"&&txt3=="=")ok=1;
+           if(ok)message="Right Answer",alet="success";
+           else message="Wrong Answer",alet="warning";
+           alert(message);
+           
+        }
+    </script>
+</body>
+</html>

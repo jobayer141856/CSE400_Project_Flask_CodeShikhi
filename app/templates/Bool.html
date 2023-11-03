@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial</title>
+    <!-- bootstrap 5 css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
+    <!-- custom css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- <meta http-equiv="refresh" content="1"> -->
+</head>
+
+<body>
+    {% include "nav_tutorial.html" %} 
+ 
+    <section class="p-4 my-container">
+        <button class="btn my-4" id="menu-btn">Chapters</button>
+        <p><h3>সি-তে বুলিয়ান কী?</h3></p>
+        <p>
+            <h5>একটি বুলিয়ান হল সি স্ট্যান্ডার্ড লাইব্রেরিতে একটি ডেটা টাইপ যা সত্য বা মিথ্যা সংরক্ষণ করতে পারে। প্রতিটি অ-শূন্য মান সত্যের সাথে মিলে যায় যখন 0 মিথ্যার সাথে মিলে যায়</h5>
+        </p>
+        <img  src="image-2.png"  class="center">
+        <p>একটি বুলিয়ান ভেরিয়েবলকে বুল কীওয়ার্ড দিয়ে ঘোষণা করা হয় এবং এটি শুধুমাত্র সত্য বা মিথ্যা মান নিতে পারে:</p>
+        <div class="example">
+             <h3>Example</h3>
+             <div class="code-ex">
+                
+                <p><font color="green">//Create Variable</font></p>
+                <font>bool isProgrammingFun =</font> <font color="blue">true;</font>
+                <br>
+                <font>bool isFishTasty  =</font> <font color="blue">false;</font>
+                <br>
+                <br>
+                <p><font color="green">//// Return boolean values</font></p>
+                <font>printf(<font color="red">"%d"</font>, isProgrammingFun);</font> &nbsp;&nbsp;&nbsp; <font color="green">//Returns 1(true)</font>
+                <br>
+                printf(<font color="red">"%d"</font>, isFishTasty); </font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <font color="green">//Returns 0(false)</font>
+                <br>
+             </div>
+        </div>
+        <br>
+        <h3>Comparing Values and Variables</h3> 
+        <p>মান তুলনা প্রোগ্রামিং দরকারী, কারণ এটি আমাদের উত্তর খুঁজে পেতে এবং সিদ্ধান্ত নিতে সাহায্য করে।</p>
+        <p>উদাহরণস্বরূপ, আপনি একটি তুলনা অপারেটর ব্যবহার করতে পারেন, যেমন (>) এর চেয়ে বড় অপারেটর, দুটি মান তুলনা করতে:</p>
+        
+        <div class="example">
+            <h3>Example</h3>
+            <div class="code-ex">
+               
+               <p><font color="green">//Create Variable</font></p>
+               <font color="blue" >int</font> myAge = <font color="red">25;</font>
+               <br>
+               <font color="blue" >int</font> votinAge = <font color="red">18;</font>
+               <br>
+               <br>
+                printf(<font color="red">"%d"</font>, myAge >= votingAge);  &nbsp;&nbsp;&nbsp;&nbsp; <font color="green">// Returns 1 (true)</font>
+               <br>
+            </div>
+       </div>
+
+         <br>
+    </section>
+ 
+
+    <!-- bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.min.js" integrity="sha384-5h4UG+6GOuV9qXh6HqOLwZMY4mnLPraeTrjT5v07o347pj6IkfuoASuGBhfDsp3d" crossorigin="anonymous"></script>
+    <!-- custom js -->
+    <script>
+        var menu_btn = document.querySelector("#menu-btn")
+        var sidebar = document.querySelector("#sidebar")
+        var container = document.querySelector(".my-container")
+        menu_btn.addEventListener("click", () => {
+            sidebar.classList.toggle("active-nav")
+            container.classList.toggle("active-cont")
+        })
+        function check(){
+            var txt1=document.getElementById("e1").value;
+            var txt2=document.getElementById("e2").value;
+            var txt3=document.getElementById("e3").value;
+            let ok=0;
+           var message=''
+           var alet;
+           if(txt1=="int"&&txt2=="float"&&txt3=="char")ok=1;
+           if(ok)message="Right Answer",alet="success";
+           else message="Wrong Answer",alet="warning";
+           alert(message);
+           
+        }
+    </script>
+</body>
+</html>

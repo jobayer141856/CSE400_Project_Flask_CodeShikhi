@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial</title>
+    <!-- bootstrap 5 css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
+    <!-- custom css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- <meta http-equiv="refresh" content="1"> -->
+</head>
+
+<body>
+    {% include "nav_tutorial.html" %} 
+ 
+    <section class="p-4 my-container">
+        <button class="btn my-4" id="menu-btn">Chapters</button>
+        <p><h3>For loop in C</h3></p>
+        <p>
+            <h5> সি ল্যাঙ্গুয়েজে ফর লুপ বিবৃতি বা প্রোগ্রামের একটি অংশকে কয়েকবার পুনরাবৃত্তি করতে ব্যবহৃত হয়। এটি প্রায়শই অ্যারে এবং লিঙ্কযুক্ত তালিকার মতো ডেটা কাঠামো অতিক্রম করতে ব্যবহৃত হয়।।</h5>
+        </p>
+        <img  src="C-for-Loop.png"  class="center">
+        <br>
+        <p>যখন আপনি জানেন যে আপনি ঠিক কতবার কোড ব্লকের মাধ্যমে লুপ করতে চান, একটি while লুপের পরিবর্তে for loop ব্যবহার করুন:</p>
+
+         <div class="example">
+             <h3>Syntax</h3>
+             <div class="code-ex">
+                <font color="blue">for</font> (statement 1;statement 2;statement 3) {
+                    <br>
+                  <font color="green" >  // code block to be executed </font>
+                  <br>
+                  }
+             </div>
+        </div>
+        <br>
+        <p>কোড ব্লক কার্যকর করার আগে স্টেটমেন্ট 1 কার্যকর করা হয় (একবার)।</p>
+        <p>বিবৃতি 2 কোড ব্লক কার্যকর করার শর্ত সংজ্ঞায়িত করে।</p>
+        <p>কোড ব্লক কার্যকর হওয়ার পরে স্টেটমেন্ট 3 কার্যকর করা হয় (প্রতিবার)।</p>
+        <p>The example below will print the numbers 0 to 4:</p>
+      <div class="example">
+            <h3>Example</h3>
+            <div class="code-ex">
+              <font color="blue">  int </font> i  ;
+               <br>
+               <font color="blue">for</font> (i = <font color="red">0</font>;i< <font color="red"> 5 </font> ;i++ ) {
+                <br>
+                printf( <font color="maroon"> "%d\n"</font>, i);
+                <br>
+                i++;
+                <br>
+                }
+            </div>
+       </div>
+       <p><b>উদাহরণ ব্যাখ্যা করা হয়েছে</b></p>
+       <p>স্টেটমেন্ট 1 লুপ শুরু হওয়ার আগে একটি ভেরিয়েবল সেট করে (int i = 0)।</p>
+       <p>বিবৃতি 2 লুপ চালানোর জন্য শর্ত সংজ্ঞায়িত করে (i অবশ্যই 5 এর কম হতে হবে)। শর্ত সত্য হলে, লুপ আবার শুরু হবে, যদি এটি মিথ্যা হয়, লুপ শেষ হবে।</p>
+       <p> বিবৃতি 3 প্রতিবার লুপের কোড ব্লক নির্বাহ করা হলে একটি মান (i++) বৃদ্ধি করে।</p>
+       <br>
+       <h2><b>Nested Loops</b></h2>
+       <p>আরেকটি লুপের ভিতরে একটি লুপ স্থাপন করাও সম্ভব। একে নেস্টেড লুপ বলে।</p>
+       <p>"বাইরের লুপ" এর প্রতিটি পুনরাবৃত্তির জন্য "অভ্যন্তরীণ লুপ" একবার কার্যকর করা হবে:</p>
+         <div class="example">
+            <h3>Example</h3>
+             <div class="code-ex">
+                int i, j;
+                <br>
+               <font color="green"> // Outer loop</font>
+               <br>
+               <font color="blue">for</font> (i = <font color="red">1</font> ; i <= <font color="red">2</font> ; ++i) {
+                <br>
+                printf(<font color="maroon"> "Outer: %d\n"</font>, i);  <font color="green">// Executes 2 times</font>
+                <br>
+                <font color="green">  // Inner loop </font>
+                <br>
+                <font color="blue">for</font> (j = <font color="red">1</font>; j <= <font color="red">3</font> ; ++j) {
+                    <br>
+                    printf(<font color="maroon"> "Inner: %d\n"</font>, j);  <font color="green">// Executes 6 times (2 * 3) </font>
+                    <br>
+                    &nbsp;&nbsp; }
+                <br>
+   }
+            </div>
+         </div>
+            <br>
+            <div class="example">
+                <h3>Exercise</h3>
+                <p>প্রিন্ট, i যতক্ষণ না i 6-এর কম:।</p>
+                <div class="code-ex">
+                    <br>
+                    <input id="i" maxlength="3" style="width: 30px; ;">(int i = 0; i < 5; <input id="ii" maxlength="3" style="width:35px ;">  ){
+                    <br>
+                    &nbsp;  &nbsp;   printf("Yes\n");
+                    <br>
+                     }
+                    <br>
+                </div>
+            <button type="button" class="btn btn-primary" onclick="check()">Submit</button>
+         </div>
+    </section>
+ 
+
+    <!-- bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.min.js" integrity="sha384-5h4UG+6GOuV9qXh6HqOLwZMY4mnLPraeTrjT5v07o347pj6IkfuoASuGBhfDsp3d" crossorigin="anonymous"></script>
+    <!-- custom js -->
+    <script>
+        var menu_btn = document.querySelector("#menu-btn")
+        var sidebar = document.querySelector("#sidebar")
+        var container = document.querySelector(".my-container")
+        menu_btn.addEventListener("click", () => {
+            sidebar.classList.toggle("active-nav")
+            container.classList.toggle("active-cont")
+        })
+        function check(){
+            var txt1=document.getElementById("i").value;
+            var txt2=document.getElementById("ii").value;
+             let ok=0;
+           var message=''
+           var alet;
+           if(txt1=="for"&&txt2=="i++")ok=1;
+           if(ok)message="Right Answer",alet="success";
+           else message="Wrong Answer",alet="warning";
+           alert(message);
+           
+        }
+    </script>
+</body>
+</html>

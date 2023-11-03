@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial</title>
+    <!-- bootstrap 5 css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
+    <!-- custom css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- <meta http-equiv="refresh" content="1"> -->
+</head>
+
+<body>
+    {% include "nav_tutorial.html" %} 
+ 
+    <section class="p-4 my-container">
+        <button class="btn my-4" id="menu-btn">Chapters</button>
+        <h1>ভেরিয়েবল কি?</h1>
+        <p class="text-dark"><h5>প্রোগ্রামিং-এ, একটি ভেরিয়েবল হল এমন একটি মান যা পরিবর্তিত হতে পারে, শর্ত বা প্রোগ্রামে পাঠানো তথ্যের উপর নির্ভর করে। সাধারণত, একটি প্রোগ্রামে নির্দেশাবলী থাকে যা কম্পিউটারকে বলে যে কী করতে হবে এবং প্রোগ্রামটি যখন চলমান তখন ব্যবহার করে এমন ডেটা।</h5> </p>
+        <p class="text-dark"><img src="/static/images/vargif.gif"></p>
+        <p><h5>ছবিতে আমরা দেখতে পাচ্ছি যে টেক্সট বক্সের নাম পরিবর্তন হচ্ছে যেমন,আশিফ,লিন,ডেভিড। তাই ভেরিয়েবল একটি কন্টেইনারের মতো আমরা সেখানে কন্টেইনার ডেটাটাইপের উপর নির্ভর করে বিভিন্ন মান সংরক্ষণ করতে পারি।</h5></p>
+        <br>
+        <p><h5>সি-তে, বিভিন্ন ধরনের ভেরিয়েবল রয়েছে (বিভিন্ন কীওয়ার্ড দিয়ে সংজ্ঞায়িত), উদাহরণস্বরূপ:</h5></p>
+        <ul>
+         <li><h5><font color="red">int</font> - stores integers (whole numbers), without decimals, such as 123 or -123</h5></li>   
+         <li><h5><font color="red">float</font> - stores floating point numbers, with decimals, such as 19.99 or -19.99</h5></li>   
+         <li><h5><font color="red">Char</font> -  stores single characters, such as 'a' or 'B'. Char values are surrounded by single quotes
+         </h5></li>   
+        </ul>
+        <br>
+        <p><h2>Declaring a Variable</h2></p>
+
+        <p>একটি ভেরিয়েবল তৈরি করতে, ধরনটি নির্দিষ্ট করুন এবং একটি মান নির্ধারণ করুন:</p>
+        <div class="example">
+            <h3>Syntax</h3>
+            <div class="code-ex">
+                <em>type variable = value</em>
+            </div>
+        </div>
+        <p><h6>এখানে টাইপ হল ডেটা টাইপ যেমন int, long long, Float, Char এবং Equal সাইন পরিবর্তনশীল নামে মান নির্ধারণ করছে.</h6></p>
+        <br>
+        <p><h6>int এর একটি ভেরিয়েবল t_Num তৈরি করুন এবং এটিতে মান 10 বরাদ্দ করুন:</h6></p>
+        <div class="example">
+            <h3>Example</h3>
+            <div class="code-ex">
+                <em> <font color="blue">int</font> t_Num = <font color="red">10</font>;</em>
+            </div>
+        </div>
+        <div class="example">
+            <h3>More Examples</h3>
+            <div class="code-ex">
+                <p> <font color="blue">int</font> s_Num = <font color="red">100</font>; <font color="green"> &nbsp; &nbsp;  &nbsp;   // intiger variable</font>     </p>
+                <p> <font color="blue">char</font> c = <font color="red">'a'</font>; <font color="green">  &nbsp; &nbsp;  &nbsp;   // character variable</font></p>
+                <p> <font color="blue">float</font> f_Num = <font color="red">10.55</font>; <font color="green">   &nbsp; &nbsp; &nbsp; // floating point variable</font></p>
+            </div>
+        </div>
+        <br>
+        <h5><b>কিভাবে একটি ভেরিয়েবল আউটপুট দেখাতে হয়,উদাহরণস্বরূপ:</b></h5>
+        <div class="example">
+            <h3>Output Examples</h3>
+            <div class="code-ex">
+                 <p>printf(<font color="red">"%d"</font>,s_Num);</p>
+                 <p>printf(<font color="red">"%c"</font>,c);</p>
+                 <p>printf(<font color="red">"%f"</font>,f_Num);</p>
+
+            </div>
+        </div>
+         <div class="example">
+            <h3>Exercise</h3>
+            <p><b>myNum</b> নামে একটি ভেরিয়েবল তৈরি করুন এবং এটিতে মান 50 বরাদ্দ করুন।</p>
+             <div class="code-ex">
+              <input id="ex1" maxlength="3" style="width:35px">
+              <input id="ex2" maxlength="5" style="width:75px">
+               =
+              <input id="ex3" maxlength="2" style="width:35px">
+            </div>
+            <br>
+            <button type="button" class="btn btn-primary" onclick="check()">Submit</button>
+         </div>
+         <br>
+
+    </section>
+ 
+
+    <!-- bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.min.js" integrity="sha384-5h4UG+6GOuV9qXh6HqOLwZMY4mnLPraeTrjT5v07o347pj6IkfuoASuGBhfDsp3d" crossorigin="anonymous"></script>
+    <!-- custom js -->
+    <script>
+        var menu_btn = document.querySelector("#menu-btn")
+        var sidebar = document.querySelector("#sidebar")
+        var container = document.querySelector(".my-container")
+        menu_btn.addEventListener("click", () => {
+            sidebar.classList.toggle("active-nav")
+            container.classList.toggle("active-cont")
+        })
+        function check(){
+            var txt1=document.getElementById("ex1").value;
+            var txt2=document.getElementById("ex2").value;
+            var txt3=document.getElementById("ex3").value;
+            let ok=0;
+           var message=''
+           var alet;
+           if(txt1=="int"&&txt2=="myNum"&&txt3=="50")ok=1;
+           if(ok)message="Right Answer",alet="success";
+           else message="Wrong Answer",alet="warning";
+           alert(message);
+        }
+    </script>
+</body>
+</html>

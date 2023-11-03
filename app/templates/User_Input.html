@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial</title>
+    <!-- bootstrap 5 css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
+    <!-- custom css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- <meta http-equiv="refresh" content="1"> -->
+</head>
+
+<body>
+    {% include "nav_tutorial.html" %} 
+ 
+    <section class="p-4 my-container">
+        <button class="btn my-4" id="menu-btn">Chapters</button>
+        <p><h3>User Input</h3></p>
+        <p>
+            <h5>আপনি ইতিমধ্যে শিখেছেন যে printf() ব্যবহার করা হয় সি-তে মান আউটপুট করতে।</h5>
+        </p>
+        <p>ব্যবহারকারীর ইনপুট পেতে, আপনি scanf() ফাংশন ব্যবহার করতে পারেন:</p>
+        <br>
+        <p>অক্ষর সংরক্ষণের জন্য স্ট্রিং ব্যবহার করা হয়।</p>
+        <p>উদাহরণস্বরূপ, "hello world" অক্ষরের একটি স্ট্রিং।</p>
+        <p>অন্যান্য অনেক প্রোগ্রামিং ল্যাঙ্গুয়েজ থেকে ভিন্ন, সহজে স্ট্রিং ভেরিয়েবল তৈরি করার জন্য সি-তে স্ট্রিং টাইপ নেই। পরিবর্তে, আপনাকে অবশ্যই char টাইপ ব্যবহার করতে হবে এবং সি-তে একটি স্ট্রিং তৈরি করতে অক্ষরের একটি অ্যারে তৈরি করতে হবে:</p>
+        
+        <div class="example">
+             <h3>Example</h3>
+             <h5>ব্যবহারকারীর দ্বারা input করা একটি সংখ্যা আউটপুট:</h5>
+             <div class="code-ex">
+                <font color="green"> // Create an integer variable that will store the number we get from the user</font>
+                <br>
+                <font color="blue">int</font>&nbsp;myNum;
+                <br>
+                <br>
+                <font color="green">// Ask the user to type a number</font>
+                <br>
+                printf(<font color="maroon">"Type a number: \n"</font>);
+                <br>
+                <br>
+                <font color="green">// Get and save the number the user types</font>
+                <br>
+                <b>Scanf</b>(<font color="maroon">"%d"</font>,&myNum);
+                <br>
+                <br>
+                <font color="green">// Output the number the user typed</font>
+                <br>
+                printf(<font color="maroon">"Your number is :%d"</font>,myNum);
+
+            </div>
+        </div>
+        <br>
+        <h2>একাধিক ইনপুট</h2>
+        <p>scanf() ফাংশন একাধিক ইনপুট (নিম্নলিখিত উদাহরণে একটি পূর্ণসংখ্যা এবং একটি অক্ষর) অনুমতি দেয়:</p>
+        <div class="example">
+            <h3>Example</h3>
+            <h5></h5>
+            <div class="code-ex">
+               <font color="green"> // Create an int and a char variable</font>
+               <br>
+               <font color="blue">int</font>&nbsp;myNum;
+               <br>
+               <font color="blue">char</font>&nbsp;myChar;
+               <br>
+               <br>
+               <font color="green">//  // Ask the user to type a number AND a character</font>
+               <br>
+               printf(<font color="maroon">"Type a number AND a character and press enter: \n"</font>);
+               <br>
+               <br>
+               <font color="green"> // Get and save the number AND character the user types</font>
+               <br>
+               <b>Scanf</b>(<font color="maroon">"%d %c"</font>,<b>&myNum</b>,<b>&myChar</b>);
+               <br>
+               <br>
+               <font color="green">// print the number </font>
+               <br>
+               printf(<font color="maroon">"Your number is :%d"</font>,<b>myNum</b>);
+               <br>
+               <br>
+               <font color="green">// print the character </font>
+               <br>
+               printf(<font color="maroon">"Your character is :%c"</font>,<b>myChar</b>);
+            </div>
+       </div>
+       <h2>স্ট্রিং ইনপুট নিন</h2>
+       <p>আপনি ব্যবহারকারীর দ্বারা input করা একটি স্ট্রিংও পেতে পারেন:</p>
+       <div class="example">
+        <h3>Example</h3>
+        <h5> একটি ব্যবহারকারীর নাম আউটপুট:</h5>
+        <div class="code-ex">
+           <font color="green">  // Create a string</font>
+           <br>
+           <font color="blue">char</font>&nbsp;firstNmae[<font color="red">30</font>];
+           <br>
+           <br>
+           
+           <font color="green">//  // Ask the user to input some text</font>
+           <br>
+           printf(<font color="maroon">"Enter your first Name: \n"</font>);
+           <br>
+           <br>
+           <font color="green"> // Get and save the text</font>
+           <br>
+           <b>Scanf</b>(<font color="maroon">" %s"</font>,firstName)
+           <br>
+           <br>
+           <font color="green">//Output the name</font>
+           <br>
+           printf(<font color="maroon">"hello %s"</font>,<font color="black">firstName</font>);
+        </div>
+   </div>
+    </section>
+ 
+
+    <!-- bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.min.js" integrity="sha384-5h4UG+6GOuV9qXh6HqOLwZMY4mnLPraeTrjT5v07o347pj6IkfuoASuGBhfDsp3d" crossorigin="anonymous"></script>
+    <!-- custom js -->
+    <script>
+        var menu_btn = document.querySelector("#menu-btn")
+        var sidebar = document.querySelector("#sidebar")
+        var container = document.querySelector(".my-container")
+        menu_btn.addEventListener("click", () => {
+            sidebar.classList.toggle("active-nav")
+            container.classList.toggle("active-cont")
+        })
+        function check(){
+            var txt1=document.getElementById("i").value;
+            var txt2=document.getElementById("ii").value;
+            var txt3=document.getElementById("iii").value;
+            var txt4="hello"
+            let ok=0;
+           var message=''
+           var alet;
+           if(txt1=="char"&&txt2=="greetings"&&txt3==txt4)ok=1;
+           if(ok)message="Right Answer",alet="success";
+           else message="Wrong Answer",alet="warning";
+           alert(message);
+           
+        }
+    </script>
+</body>
+</html>

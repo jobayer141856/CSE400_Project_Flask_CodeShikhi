@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial</title>
+    <!-- bootstrap 5 css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
+    <!-- custom css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- <meta http-equiv="refresh" content="1"> -->
+</head>
+
+<body>
+    {% include "nav_tutorial.html" %} 
+ 
+    <section class="p-4 my-container">
+        <button class="btn my-4" id="menu-btn">Chapters</button>
+        <h2>C If ... Else</h2>
+        <p><h5>if-else বিবৃতি হল একটি সিদ্ধান্ত গ্রহণের বিবৃতি যা নির্দিষ্ট শর্তের (পরীক্ষার অভিব্যক্তি) উপর ভিত্তি করে কোডের অংশটি কার্যকর করা হবে কিনা তা নির্ধারণ  করতে ব্যবহৃত হয়। যদি প্রদত্ত শর্ত সত্য হয়, তাহলে if ব্লকের ভিতরের কোডটি কার্যকর করা হয়, অন্যথায় else ব্লকের ভিতরের কোডটি কার্যকর করা হয়।
+
+        </h5></p>
+        <h4>Conditions and If Statements</h4>
+        <p>আমরা ইতিমধ্যে শিখেছি যে C গণিত থেকে স্বাভাবিক যৌক্তিক অবস্থাকে সমর্থন করে :</p>
+
+        <ul>
+          <li>Less than: <font color="red"> a < b </font></li>
+          <li>Less than or equal to: <font color="red"> a <= b </font></li>
+          <li>Greater than: <font color="red"> a >= b </font></li>
+          <li>Greater than or equal to: <font color="red"> a < b </font></li>
+          <li>Equal to: <font color="red"> a == b </font></li>
+          <li>Not equal to: <font color="red"> a != b </font></li>
+        </ul>
+        <br>
+         <h5>আমরা বিভিন্ন সিদ্ধান্তের জন্য বিভিন্ন ক্রিয়া সম্পাদন করতে এই শর্তগুলি ব্যবহার করতে পারি.</h5>
+        <br>
+        <p>C এর নিম্নলিখিত শর্তসাপেক্ষ বিবৃতি রয়েছে:</p>
+
+        <ul>
+          <li>Use  <font color="red">if</font> to specify a block of code to be executed, if a specified condition is <font color="red">true</font></li>
+          <li>Use  <font color="red">else</font> to specify a block of code to be executed, if the condition is <font color="red">false</font></li>
+          <li>Use  <font color="red">else if</font> to specify a new condition to test, if a specified condition is <font color="red">false</font></li>
+          <li>Use  <font color="red">switch</font> to specify many alternative blocks of code to be executed </li>
+        </ul>
+      
+        <div class="example">
+          <h3>Syntax</h3>
+          <div class="code-ex">
+            if(condition){
+              <br>
+                <font color="green">// block of code to be executed</font>
+                <br>
+            }
+           </div>
+     </div>
+    <p> আমরা শর্তে পরিবর্তনশীল এবং আদিম ডেটা ব্যবহার করতে পারি:</p>
+
+
+    <div class="example">
+      <h3>Syntax</h3>
+      <div class="code-ex">
+        if(condition1){
+          <br>
+            <font color="green">// block of code to be executed</font>
+            <br>
+        }else if(condition2){
+           <br>
+          <font color="green"> // block of code to be executed if the condition1 is false and condition2 is true</font>
+           <br>
+        }else{
+          <br>
+         <font color="green"> // block of code to be executed if the condition1 is false and condition2 is false </font>         <br>
+        }
+       </div>
+ </div>
+
+ <div class="example">
+  <h3>Example</h3>
+  <div class="code-ex">
+    <font color="blue">int</font> time = <font color="red">22;</font>
+    <br>
+    <font color="blue"> if </font> (time < <font color="red"> 10 </font>) {
+      <br>
+      printf(<font color="maroon">"Good morning."</font>);
+      <br>
+    } <font color="blue">else if</font> (time < <font color="red"> 20 </font>) {
+      <br>
+      printf(<font color="maroon">"Good day."</font>);
+       <br>
+    } else {
+      <br>
+      printf(<font color="maroon">"Good Evening"</font>);
+      <br>
+    }
+    <font color="green">// Outputs "Good evening."</font> 
+   </div>
+</div>
+
+        <div class="example">
+            <h3>Exercise</h3>
+            <p>x y এর থেকে বড় হলে "হ্যালো ওয়ার্ল্ড" প্রিন্ট করুন।</p>
+            <div class="code-ex">
+                int x= 10 ;
+                <br>
+                int y= 5 ;
+                <br>
+                <input id="i" maxlength="2" style="width: 22px; ;">(x<input id="ii" maxlength="1" style="width: 20px; ;">y ){
+                <br>
+                printf("Hello World");
+                <br>
+                 }
+                <br>
+            </div>
+            <br>
+            <button type="button" class="btn btn-primary" onclick="check()">Submit</button>
+         </div>
+         <br>
+    </section>
+ 
+
+    <!-- bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.min.js" integrity="sha384-5h4UG+6GOuV9qXh6HqOLwZMY4mnLPraeTrjT5v07o347pj6IkfuoASuGBhfDsp3d" crossorigin="anonymous"></script>
+    <!-- custom js -->
+    <script>
+        var menu_btn = document.querySelector("#menu-btn")
+        var sidebar = document.querySelector("#sidebar")
+        var container = document.querySelector(".my-container")
+        menu_btn.addEventListener("click", () => {
+            sidebar.classList.toggle("active-nav")
+            container.classList.toggle("active-cont")
+        })
+        function check(){
+            var txt1=document.getElementById("i").value;
+            var txt2=document.getElementById("ii").value;
+             let ok=0;
+           var message=''
+           var alet;
+           if(txt1=="if"&&txt2==">")ok=1;
+           if(ok)message="Right Answer",alet="success";
+           else message="Wrong Answer",alet="warning";
+           alert(message);
+           
+        }
+    </script>
+</body>
+</html>

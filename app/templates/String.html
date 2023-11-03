@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial</title>
+    <!-- bootstrap 5 css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
+    <!-- custom css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- <meta http-equiv="refresh" content="1"> -->
+</head>
+
+<body>
+    {% include "nav_tutorial.html" %} 
+ 
+    <section class="p-4 my-container">
+        <button class="btn my-4" id="menu-btn">Chapters</button>
+        <p><h3>Strings</h3></p>
+        <p>
+            <h5>সি প্রোগ্রামিং-এ একটি স্ট্রিং হল একটি শূন্য অক্ষর '\0' দিয়ে সমাপ্ত অক্ষরের একটি ক্রম। সি স্ট্রিং অক্ষরগুলির একটি অ্যারে হিসাবে সংরক্ষণ করা হয়। একটি অক্ষর অ্যারে এবং একটি সি স্ট্রিংয়ের মধ্যে পার্থক্য হল যে সি-তে স্ট্রিংটি একটি অনন্য অক্ষর '\0' দিয়ে শেষ করা হয়।।</h5>
+        </p>
+        <br>
+        <img  src="string_representation.jpg"  class="center">
+        <br>
+        <br>
+        <p>অক্ষর সংরক্ষণের জন্য স্ট্রিং ব্যবহার করা হয়।</p>
+        <p>উদাহরণস্বরূপ, "hello world" অক্ষরের একটি স্ট্রিং।</p>
+        <p>অন্যান্য অনেক প্রোগ্রামিং ল্যাঙ্গুয়েজ থেকে ভিন্ন, সহজে স্ট্রিং ভেরিয়েবল তৈরি করার জন্য সি-তে স্ট্রিং টাইপ নেই। পরিবর্তে, আপনাকে অবশ্যই char টাইপ ব্যবহার করতে হবে এবং সি-তে একটি স্ট্রিং তৈরি করতে অক্ষরের একটি অ্যারে তৈরি করতে হবে:</p>
+        
+        <div class="example">
+             <h3>Example</h3>
+             <div class="code-ex">
+                <p><font color="blue">char</font> greetings[] = <font color="maroon">"Hello world!";</font></p>
+             </div>
+        </div>
+        <br>
+        <p>মনে রাখবেন যে আপনাকে ডবল উদ্ধৃতি ("") ব্যবহার করতে হবে।</p>
+        <p>স্ট্রিং আউটপুট করতে, আপনি printf() ফাংশনটি ফরম্যাট স্পেসিফায়ার %s এর সাথে ব্যবহার করতে পারেন সি কে জানাতে যে আমরা এখন স্ট্রিংগুলির সাথে কাজ করছি:</p>
+        <br>
+       
+      <div class="example">
+            <h3>Example</h3>
+            <div class="code-ex">
+                <font color="blue">char</font> greetings[] =  <font color="red"> "hello world" </font>;
+                <br>
+                printf(<font color="maroon">  "%s"</font>, greetings);
+                <br>
+              </div>
+       </div>
+       <h2>অ্যাক্সেস স্ট্রিং</h2>
+       <br>
+       <p>যেহেতু স্ট্রিংগুলি আসলে সি-তে অ্যারে, তাই আপনি বর্গাকার বন্ধনী [] এর ভিতরে তার সূচক নম্বর উল্লেখ করে একটি স্ট্রিং অ্যাক্সেস করতে পারেন:</p>
+        <p>এই উদাহরণটি String এর প্রথম অক্ষর (0) প্রিন্ট করে:</p>
+         <div class="example">
+            <h3>Example</h3>
+             <div class="code-ex">
+                <font color="blue">char</font> greetings[] =  <font color="red"> "hello world" </font>;
+                <br>
+                printf(<font color="maroon">  "%c"</font>, greetings[0]);
+                <br>   
+            </div>
+         </div>
+        <br>
+        <h2>স্ট্রিং পরিবর্তন করুন</h2>
+        একটি স্ট্রিং-এ একটি নির্দিষ্ট অক্ষরের মান পরিবর্তন করতে, index নম্বর পড়ুন এবং ' ' উদ্ধৃতি ব্যবহার করুন:
+        <div class="example">
+            <h3>Example</h3>
+             <div class="code-ex">
+                <font color="blue">char</font> greetings[] =  <font color="red">"hello world"</font>;
+                <br>
+                greetings[<font color="red">0</font>] = <font color="red">'j'</font>;
+                <br>
+                printf(<font color="maroon">  "%s"</font>, greetings[0]);
+                <br>
+                <br>
+                 <font color="green">// Outputs Jello World! instead of Hello World!</font>
+            </div>
+         </div>
+        
+         <h2>Loop Through a String</h2>
+         <br>
+         <p>আপনি ফর লুপ দিয়ে স্ট্রিং এর উপাদানগুলি অ্যাক্সেস করতে পারেন।</p>
+          <div class="example">
+            <h3>Example</h3>
+             <div class="code-ex"> 
+                <font color="blue">char</font> carName[] = <font color="red">"Volvo"</font>;
+                <br>
+                int i;
+                <br>
+                <font color="blue">for</font> (i = <font color="red">0</font>; i < <font color="red">5</font> ; i++) {
+                    <br>
+                    printf(<font color="maroon">  "%c"</font>, greetings[i]);
+                    <br>
+                }
+
+            </div>
+         </div>
+
+          
+
+            <div class="example">
+                <h3>Exercise</h3>
+                <p><font color="maroon">greetings নামে একটি "String" তৈরি করতে অনুপস্থিত অংশটি পূরণ করুন এবং এটিকে "hello" মান নির্ধারণ করুন:</font></p>
+                <div class="code-ex">
+                <input id="i" maxlength="4" style="width:40px ;">&nbsp;&nbsp;<input id="ii" maxlength="9" style="width:90px ;"> = &nbsp;<input id="iii"  maxlength="5" style="width:45px ;">&nbsp;<b>;</b>
+                </div>
+            <button type="button" class="btn btn-primary" onclick="check()">Submit</button>
+         </div>
+    </section>
+ 
+
+    <!-- bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.min.js" integrity="sha384-5h4UG+6GOuV9qXh6HqOLwZMY4mnLPraeTrjT5v07o347pj6IkfuoASuGBhfDsp3d" crossorigin="anonymous"></script>
+    <!-- custom js -->
+    <script>
+        var menu_btn = document.querySelector("#menu-btn")
+        var sidebar = document.querySelector("#sidebar")
+        var container = document.querySelector(".my-container")
+        menu_btn.addEventListener("click", () => {
+            sidebar.classList.toggle("active-nav")
+            container.classList.toggle("active-cont")
+        })
+        function check(){
+            var txt1=document.getElementById("i").value;
+            var txt2=document.getElementById("ii").value;
+            var txt3=document.getElementById("iii").value;
+            var txt4="hello"
+            let ok=0;
+           var message=''
+           var alet;
+           if(txt1=="char"&&txt2=="greetings"&&txt3==txt4)ok=1;
+           if(ok)message="Right Answer",alet="success";
+           else message="Wrong Answer",alet="warning";
+           alert(message);
+           
+        }
+    </script>
+</body>
+</html>

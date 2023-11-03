@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial</title>
+    <!-- bootstrap 5 css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
+    <!-- custom css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- <meta http-equiv="refresh" content="1"> -->
+</head>
+
+<body>
+  {% include "nav_tutorial.html" %} 
+ 
+    <section class="p-4 my-container">
+        <button class="btn my-4" id="menu-btn">Chapters</button>
+        <h2>C Operations</h2>
+        <p><h5>একটি অপারেটর একটি প্রতীক যা একটি মান বা একটি ভেরিয়েবলের উপর কাজ করে।একটি গাণিতিক অপারেটর সংখ্যাসূচক মান (ধ্রুবক এবং চলক) এর উপর গাণিতিক ক্রিয়াকলাপ যেমন যোগ, বিয়োগ, গুণ, ভাগ ইত্যাদি করে থাকে।</h5></p>
+        <p>নীচের উদাহরণে, আমরা দুটি মান একসাথে যোগ করার জন্য + অপারেটর ব্যবহার করি:</p>
+        <div class="example">
+            <h3>Examples</h3>
+            <div class="code-ex">
+             <font color="blue">int</font> sum1 =<font color="red"> 100 + 50</font>;  &nbsp;&nbsp;&nbsp;&nbsp;  <font color="green">  // 150(100+50)</font>
+             <br>
+             <font color="blue">int</font> sum2 =sum1 + <font color="red">250</font>; &nbsp;&nbsp;&nbsp;&nbsp;<font color="green"> // 400(150+250)</font>
+             <br>
+             <font color="blue">int</font> sum3 =sum1+sum2;  &nbsp;&nbsp;&nbsp;&nbsp;<font color="green"> // 800(400+400)</font>
+            </div>
+        </div>
+        <p>সি অপারেটরদের নিম্নলিখিত গ্রুপে বিভক্ত করে:</p>
+        <ul>
+            <li>Arithmetic operators</li>
+            <li>Assignment operators</li>
+            <li>Comparison operators</li>
+            <li>Logical operators</li>
+            <li>Bitwise operators</li>
+        </ul>
+        <h2>Arithmetic Operators</h2>
+        <p>পাটিগণিত অপারেটরগুলি সাধারণ গাণিতিক ক্রিয়াকলাপ সম্পাদন করতে ব্যবহৃত হয়।</p>
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Operation</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Example</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">+</th>
+                <td>additon</td>
+                <td>দুটি মান একসাথে যোগ করে</td>
+                <td>x + y</td>
+              </tr>
+              <tr>
+                <th scope="row">-</th>
+                <td>Subtraction</td>
+                <td>একটি মান থেকে আরেকটি মান বিয়োগ করে</td>
+                <td>x - y</td>
+              </tr>
+              <tr>
+                <th scope="row">*</th>
+                <td>Multiplication</td>
+                <td>দুটি মান গুণ করে</td>
+                <td>x * y</td>
+              </tr>
+              <tr>
+                <th scope="row">/</th>
+                <td>Division</td>
+                <td>একটি মানকে আরেকটি দিয়ে ভাগ করে</td>
+                <td>x / y</td>
+              </tr>
+              <tr>
+                <th scope="row">%</th>
+                <td>Modulus</td>
+                <td>বিভাজন অবশিষ্ট ফেরত দেয়</td>
+                <td>x % y</td>
+              </tr>
+              <tr>
+                <th scope="row">++</th>
+                <td>Increment</td>
+                <td>একটি ভেরিয়েবলের মান 1 দ্বারা বৃদ্ধি করে</td>
+                <td>x ++</td>
+              </tr>
+              <tr>
+                <th scope="row">--</th>
+                <td>Decrement</td>
+                <td>একটি ভেরিয়েবলের মান 1 দ্বারা হ্রাস করে</td>
+                <td>x --</td>
+              </tr>
+            </tbody>
+          </table>
+          <br>
+        <h2>Assignment Operators</h2>
+        <p>অ্যাসাইনমেন্ট অপারেটরগুলি ভেরিয়েবলের মান নির্ধারণ করতে ব্যবহৃত হয়।</p>
+        <p>সমস্ত অ্যাসাইনমেন্ট অপারেটরদের একটি তালিকা:</p>
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Operation</th>
+                <th scope="col">Example</th>
+                <th scope="col">Same As</th>
+               </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">=</th>
+                <td>X = 5</td>
+                <td>X = 5</td>
+               </tr>
+              <tr>
+                <th scope="row">+=</th>
+                <td>X += 5</td>
+                <td>X = X + 5</td>
+               </tr>
+              <tr>
+                <th scope="row">-=</th>
+                <td>X -= 5</td>
+                <td>X = X - 5</td>
+               </tr>
+               <tr>
+                <th scope="row">*=</th>
+                <td>X *= 5</td>
+                <td>X = X * 5</td>
+               </tr>
+               <tr>
+                <th scope="row">/=</th>
+                <td>X /= 5</td>
+                <td>X = X / 5</td>
+               </tr>
+               <tr>
+                <th scope="row">%=</th>
+                <td>X %= 5</td>
+                <td>X = X % 5</td>
+               </tr>
+               <tr>
+                <th scope="row">&=</th>
+                <td>X &= 5</td>
+                <td>X = X & 5</td>
+               </tr>
+               <tr>
+                <th scope="row">|=</th>
+                <td>X |= 5</td>
+                <td>X = X | 5</td>
+               </tr>
+               <tr>
+                <th scope="row">^=</th>
+                <td>X ^= 5</td>
+                <td>X = X ^ 5</td>
+               </tr>
+            </tbody>
+          </table>
+          <br>
+          <h2>Comparison Operators</h2>
+          <p>তুলনা অপারেটর দুটি মান (বা ভেরিয়েবল) তুলনা করতে ব্যবহৃত হয়। এটি প্রোগ্রামিংয়ের ক্ষেত্রে গুরুত্বপূর্ণ, কারণ এটি আমাদের উত্তর খুঁজে পেতে এবং সিদ্ধান্ত নিতে সাহায্য করে।</p>
+          <p>একটি তুলনার রিটার্ন মান হয় 1 বা 0, যার অর্থ সত্য (1) বা মিথ্যা (0)। এই মানগুলি বুলিয়ান মান হিসাবে পরিচিত, এবং আপনি বুলিয়ান এবং If..Else অধ্যায়ে সেগুলি সম্পর্কে আরও শিখবেন।</p>
+          <p>সমস্ত তুলনা অপারেটরের একটি তালিকা:</p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Operation</th>
+                <th scope="col">Name</th>
+                <th scope="col">Example</th>
+               </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">==</th>
+                <td>Equal to</td>
+                <td>X == Y</td>
+               </tr>
+              <tr>
+                <th scope="row">!=</th>
+                <td>Not Equal</td>
+                <td>X != Y</td>
+               </tr>
+              <tr>
+                <th scope="row">></th>
+                <td>Greater than</td>
+                <td>X > Y</td>
+               </tr>
+               <tr>
+                <th scope="row"> < </th>
+                <td>Less than</td>
+                <td>X < Y</td>
+               </tr>
+               <tr>
+                <th scope="row">>=</th>
+                <td>Greater than or equal </td>
+                <td>X >= Y</td>
+               </tr>
+               <tr>
+                <th scope="row"><=</th>
+                <td>Less than or Equal</td>
+                <td>X <= Y</td>
+               </tr>
+            </tbody>
+          </table>
+          <br>
+          <h2>Logical Operators</h2>
+          <p>আপনি লজিক্যাল অপারেটরদের সাথে সত্য বা মিথ্যা মান পরীক্ষা করতে পারেন।</p>
+          <p>লজিক্যাল অপারেটরগুলি ভেরিয়েবল বা মানগুলির মধ্যে যুক্তি নির্ধারণ করতে ব্যবহৃত হয়:</p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Operator</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th>Example</th>
+               </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">&&</th>
+                <td>Logical and</td>
+                <td>উভয় বিবৃতি সত্য হলে সত্য প্রদান করে</td>
+                <td>x < 5 &&  x < 10</td>
+               </tr>
+               <tr>
+                <th scope="row">||</th>
+                <td>Logical or</td>
+                <td>বিবৃতিগুলির একটি সত্য হলে সত্য প্রদান করে</td>
+                <td>x < 5 ||  x < 10</td>
+               </tr>
+               <tr>
+                <th scope="row">!</th>
+                <td>Logical not</td>
+                <td>ফলাফল বিপরীত, ফলাফল সত্য হলে মিথ্যা প্রদান করে</td>
+                <td>!(x < 5 &&  x < 10)</td>
+               </tr>
+            </tbody>
+          </table>
+         <br>
+
+
+
+        <div class="example">
+            <h3>Exercise</h3>
+            <p>10 কে 5 দিয়ে গুণ করতে শূন্যস্থান পূরণ করুন এবং ফলাফলটি প্রিন্ট করুন:</p>
+            <div class="code-ex">
+                int x= 10 ;
+                <br>
+                int y= 5 ;
+                <br>
+                printf("<input id="x1" maxlength="2" style="width:33px ;">", x <input id="x2" maxlength="1" style="width:15px ;"> y);
+                <br>
+            </div>
+            <br>
+            <button type="button" class="btn btn-primary" onclick="check()">Submit</button>
+         </div>
+         <br>
+    </section>
+ 
+
+    <!-- bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.min.js" integrity="sha384-5h4UG+6GOuV9qXh6HqOLwZMY4mnLPraeTrjT5v07o347pj6IkfuoASuGBhfDsp3d" crossorigin="anonymous"></script>
+    <!-- custom js -->
+    <script>
+        var menu_btn = document.querySelector("#menu-btn")
+        var sidebar = document.querySelector("#sidebar")
+        var container = document.querySelector(".my-container")
+        menu_btn.addEventListener("click", () => {
+            sidebar.classList.toggle("active-nav")
+            container.classList.toggle("active-cont")
+        })
+        function check(){
+            var txt1=document.getElementById("x1").value;
+            var txt2=document.getElementById("x2").value;
+             let ok=0;
+           var message=''
+           var alet;
+           if(txt1=="%d"&&txt2=="*")ok=1;
+           if(ok)message="Right Answer",alet="success";
+           else message="Wrong Answer",alet="warning";
+           alert(message);
+           
+        }
+    </script>
+</body>
+</html>
