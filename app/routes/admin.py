@@ -2,7 +2,10 @@ from bson import ObjectId
 from app import *
 @app.route('/admin' , methods=['GET', "POST"])
 def admin():
-    return render_template("admin.html", **locals())
+     if "email" in session:
+        email = session["email"]
+        email_true = True
+     return render_template("admin.html", **locals())
 
 @app.route('/admin_problemset', methods=['GET', "POST"])
 def admin_problemset():

@@ -7,10 +7,89 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    
  {% include "admin_nav.html"%}
 
+ <div class="mx-5 my-5 text-center ">
+    <h1 class="text-3xl font-bold transition transform hover:bg-sky-700 hover:rounded-md hover:p-2 hover:text-4xl hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:transform-none ...">Welcome to Code Shikhi: Your Path to Mastering Programming</h1>
+   </div>
+   <div id="default-carousel" class="relative w-full" data-carousel="slide">
+    <!-- Carousel wrapper -->
+    <div class="relative h-56 overflow-hidden rounded-lg md:h-96 lg:h-100 mx-5 my-10">
+         <!-- Item 1 -->
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <img src="static/images/1.jpg" class="absolute h-full w-full block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+        </div>
+        <!-- Item 2 -->
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <img src="static/images/2.png" class="absolute h-full w-full block -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+        </div>
+        <!-- Item 3 -->
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <img src="static/images/3.png" class="absolute block h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+        </div>
+        <!-- Item 4 -->
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <img src="static/images/4.png" class="absolute block  h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+        </div>
+        <!-- Item 5 -->
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <img src="static/images/5.jpg" class="absolute block h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+        </div>
+    </div>
+    <!-- Slider indicators -->
+    <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
+        <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
+        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
+    </div>
+    <!-- Slider controls -->
+    <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+            <svg class="w-4 h-4 text-white dark:text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+            </svg>
+            <span class="sr-only">Previous</span>
+        </span>
+    </button>
+    <button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+            <svg class="w-4 h-4 text-white dark:text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+            </svg>
+            <span class="sr-only">Next</span>
+        </span>
+    </button>
+</div>
 
+    <div class="mx-5 my-12 text-center ">
+        <p class="m-12 font-normal text-2xl font-bold hover:font-bold hover:text-sky-400">
+        Our goal at Code Shikhi is to provide you with the information and abilities required to succeed in the field of programming. Regardless of your level of expertise, our platform is customized to meet your learning needs, whether it novice coders just starting out or seasoned programmers seeking to broaden their skills.
+        </p>
+    </div>
+    <div class="mt-5">
+    </div>
+    <div class="mx-12 my-12 flex">
+        <div class="mx-5 mt-12">
+            <h1 class="text-6xl font-bold text-center hover:text-8xl"> C </h1>
+            <h1 class="mt-5 text-2xl">C is a powerful general-purpose programming language. It can be used to develop software like operating systems, databases, compilers, and so on. </h1>
+            <div class="text-center mt-5" ><button type="button" class=" hover:p-2 font-bold text-2xl hover:text-white-800 hover:bg-sky-800 hover:rounded-md cursor-pointer ...">
+               <a href="/c_tutorial" target="_blank">Learn C</a> 
+               </button></div>
+               <div class="text-center mt-5" ><button type="button" class=" hover:p-2 font-bold text-2xl hover:text-white-800 hover:bg-sky-800 hover:rounded-md cursor-pointer ...">
+                <a href="">Vieo Tutorial</a> 
+                </button></div>
+                <div class="text-center mt-5" ><button type="button" class=" hover:p-2 font-bold text-2xl hover:text-white-800 hover:bg-sky-800 hover:rounded-md cursor-pointer ...">
+                    <a href="">Animation Tutorial</a> 
+                    </button></div>
+        </div>
+        <div class="center mx-5 mt-12">
+            <h1 class="text-3xl text-center"> C Programming Example: </h1>
+            <img class="mt-5 mx-5" src="static/images/Example.png">
+            <a class="text-sky-400 font-bold mx-5 my-5" href="">Try by yourself</a>
+        </div>
+    </div>
 {%include "footer.html"%}
 <script src="https://unpkg.com/flowbite@1.5.1/dist/flowbite.js"></script>
 </body>

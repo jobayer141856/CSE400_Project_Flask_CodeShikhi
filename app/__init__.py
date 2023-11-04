@@ -42,4 +42,5 @@ from app.routes import login
 from app.routes import SignUp
 from app.routes import verify
 from app.routes import SignOut
-
+from app.routes import admin_login
+from app.routes import admin_SignOut
