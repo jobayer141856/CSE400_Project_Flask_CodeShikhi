@@ -5,6 +5,7 @@ def login():
         print(request.form)
         email = request.form["email"]
         password = request.form["password"]
+        checkbox = request.form["checkbox"]
         email_found = db_user_profile.find_one({'email':email})
 
         if email_found:
@@ -13,6 +14,9 @@ def login():
             if bcrypt.checkpw(password.encode('utf-8'), passcheck):
                 session["email"] = email_f
                 session["name"] = email_found['name']
+                if checkbox == 'remeber':
+                    session["checkbox"] = checkbox
+                    print(checkbox)
                 return redirect(url_for("index"))
             else:
                 return "Wrong Password"

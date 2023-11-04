@@ -5,6 +5,10 @@ import json
 from app import *
 @app.route('/problems' , methods=['GET', "POST"])
 def problems():
+    if "email" in session:
+        email = session["email"]
+        name = session["name"]
+        email_true = True
     title_list = []
     title_id = []
     len_list = []

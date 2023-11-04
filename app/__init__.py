@@ -41,4 +41,5 @@ from app.routes import problems
 from app.routes import login
 from app.routes import SignUp
 from app.routes import verify
+from app.routes import SignOut
 
