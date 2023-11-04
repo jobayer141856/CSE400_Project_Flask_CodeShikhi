@@ -3,7 +3,7 @@ from app import *
 def login():
     if request.method=='POST':
         print(request.form)
-        username = request.form["username"]
+        username = request.form["email"]
         password = request.form["password"]
         name_found = db_user_profile.find_one({'username':username})
         name_found2 = db_user_profile.find_one({'username': username})

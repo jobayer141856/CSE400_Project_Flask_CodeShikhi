@@ -1,6 +1,8 @@
 from random import randint
 from flask import *
 from flask_mail import *
+import flask_bcrypt
+import bcrypt
 import pymongo
 
 
@@ -38,4 +40,5 @@ from app.routes import admin
 from app.routes import problems
 from app.routes import login
 from app.routes import SignUp
+from app.routes import verify
 
