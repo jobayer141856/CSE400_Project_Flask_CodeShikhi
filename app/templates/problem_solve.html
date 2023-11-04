@@ -37,17 +37,12 @@
         <label for="source_code" class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Progamming Language:c</label>
           <textarea id="code" rows="12" name="code" class="w-full px-0 text-sm text-gray-900 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400" placeholder="Write your source code here" required></textarea>
       </div>
-      <div class="flex flex-col items-center  px-3 py-2 border-t dark:border-gray-600">
-          <button type="submit" class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800">
-              Submit
-          </button>
+      <div class="flex justify-center px-3 py-2 border-t dark:border-gray-600">
+          <input type="submit" name="submit_button" value="Submit" class=" p-5 mx-5 items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800">
+      <input type="submit" name="hints_button" value="Hints" class="items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800">
       </div>
   </div>
 </form>
-<div class="mt-5 m-12">
-  <h1 class="text-center">Compiler Result</h1>
-    <pre class="text-center">{{ result }}</pre>
-</div>
 
   {% include "footer.html" %} 
   <script src="https://unpkg.com/flowbite@1.5.1/dist/flowbite.js"></script>

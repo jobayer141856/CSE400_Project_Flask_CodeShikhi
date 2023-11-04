@@ -30,6 +30,7 @@ def problems():
 def view(s):
     s =str(s)
     p = 2
+    c=0
     viewprob = []
     ed = db_admin_problemset.find_one({"_id": ObjectId(s)})
     viewprob.append(ed["problem_title"])
@@ -42,26 +43,31 @@ def view(s):
 
 @app.route('/compile', methods=['POST'])
 def compile_code():
+
     code = request.form['code']  # Get the user's code from the request
     url = 'https://api.jdoodle.com/v1/execute'  # Replace 'API_URL' with the actual API endpoint
     print(code)
-    # Create a payload with the code
-    payload = {
-        'clientId': 'b5976d432804e8b418c899eb84f0725a',
-        'clientSecret': '3d6d9dae1a9be42f9595d6b7a171b1280d1537157d91c406a06fbee046e4f630',
-        'script': code,
-        'language': 'c',
-        'versionIndex': '0',
-        'compileOnly': 'false'
 
-    }
-    # Make a request to the online compiler API
-    response = requests.post(url, json=payload)
-    response_data = response.json()
-    print(response_data)
-    if 'output' in response_data:
-        result = response_data['output']
-    else:
-        result = 'Error: Failed to retrieve output.'
-        print(response.content)
-    return render_template('result.html', **locals())
+    if request.form['submit_button'] == "Submit":
+    # Create a payload with the code
+        payload = {
+            'clientId': 'b5976d432804e8b418c899eb84f0725a',
+            'clientSecret': '3d6d9dae1a9be42f9595d6b7a171b1280d1537157d91c406a06fbee046e4f630',
+            'script': code,
+            'language': 'c',
+            'versionIndex': '0',
+            'compileOnly': 'false'
+        }
+        # Make a request to the online compiler API
+        response = requests.post(url, json=payload)
+        response_data = response.json()
+        print(response_data)
+        if 'output' in response_data:
+            result = response_data['output']
+        else:
+            result = 'Error: Failed to retrieve output.'
+            print(response.content)
+        return render_template('result.html', **locals())
+    
+    if request.form['Hints_button'] == "Hints":
+        return render_template('hints.html', **locals())
