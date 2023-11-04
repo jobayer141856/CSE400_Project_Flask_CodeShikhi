@@ -4,23 +4,27 @@ import stdin
 import json
 from app import *
 @app.route('/problems' , methods=['GET', "POST"])
+
 def problems():
+
     if "email" in session:
         email = session["email"]
         name = session["name"]
         email_true = True
-    title_list = []
-    title_id = []
-    len_list = []
-    prob_list = {}
-    i=0
-    for prob_title in db_admin_problemset.find():
-        title_list.append(prob_title["problem_title"])
-        title_id.append(prob_title["_id"])
-        prob_list[i] = [prob_title["_id"], str(prob_title["problem_title"]), str(prob_title["problem_details"]),str(prob_title["input"]),str(prob_title["output"])]
-        i+=1
-    len_list = len(title_list)
-    return render_template("problems.html", **locals())
+        title_list = []
+        title_id = []
+        len_list = []
+        prob_list = {}
+        i=0
+        for prob_title in db_admin_problemset.find():
+            title_list.append(prob_title["problem_title"])
+            title_id.append(prob_title["_id"])
+            prob_list[i] = [prob_title["_id"], str(prob_title["problem_title"]), str(prob_title["problem_details"]),str(prob_title["input"]),str(prob_title["output"])]
+            i+=1
+        len_list = len(title_list)
+        return render_template("problems.html", **locals())
+    else:
+       return redirect(url_for("login")) 
 
 @app.route('/view/<string:s>', methods=['GET', "POST"])
 def view(s):
@@ -51,7 +55,6 @@ def compile_code():
         'compileOnly': 'false'
 
     }
-
     # Make a request to the online compiler API
     response = requests.post(url, json=payload)
     response_data = response.json()
@@ -61,15 +64,4 @@ def compile_code():
     else:
         result = 'Error: Failed to retrieve output.'
         print(response.content)
-
-    # print(response.content)
-    # result = response.json().get('output')
-    # try:
-    #     response_data = response.json()
-    #     result = response_data.get('output')
-    #     if result is None:
-    #         result = 'Error: Failed to retrieve output.'
-    # except ValueError:
-    #     result = 'Error: Invalid response from the API.'
-    #     print(response.content)
-    return render_template('result.html', result=result)
+    return render_template('result.html', **locals())
