@@ -43,7 +43,7 @@ def view(s):
 
 @app.route('/compile', methods=['POST'])
 def compile_code():
-
+    
     code = request.form['code']  # Get the user's code from the request
     url = 'https://api.jdoodle.com/v1/execute'  # Replace 'API_URL' with the actual API endpoint
     print(code)
@@ -52,7 +52,7 @@ def compile_code():
     # Create a payload with the code
         payload = {
             'clientId': 'b5976d432804e8b418c899eb84f0725a',
-            'clientSecret': '3d6d9dae1a9be42f9595d6b7a171b1280d1537157d91c406a06fbee046e4f630',
+            'clientSecret': '4791c13dc4e6a1bde497a1a484bbed0c9e29881dcc145d8b4231f11336b869c',
             'script': code,
             'language': 'c',
             'versionIndex': '0',
