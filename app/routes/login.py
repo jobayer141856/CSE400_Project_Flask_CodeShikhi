@@ -3,27 +3,18 @@ from app import *
 def login():
     if request.method=='POST':
         print(request.form)
-        username = request.form["email"]
+        email = request.form["email"]
         password = request.form["password"]
-        name_found = db_user_profile.find_one({'username':username})
-        name_found2 = db_user_profile.find_one({'username': username})
-        if name_found:
-            name = name_found['username']
-            passcheck = name_found['password']
+        email_found = db_user_profile.find_one({'email':email})
+
+        if email_found:
+            email_f = email_found['email']
+            passcheck = email_found['password']
             if bcrypt.checkpw(password.encode('utf-8'), passcheck):
-                session["username"] = name
-                return redirect(url_for("home"))
+                session["email"] = email_f
+                session["name"] = email_found['name']
+                return redirect(url_for("index"))
             else:
                 return "Wrong Password"
-        elif name_found2:
-            name = name_found2['username']
-            passcheck = name_found2['password']
-
-            if bcrypt.checkpw(password.encode('utf-8'), passcheck):
-                session["username"] = name
-                return redirect(url_for("home"))
-            else:
-                return "Wrong Password"
-
         return "Username not found"
     return render_template("login.html", **locals())
