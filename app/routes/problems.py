@@ -83,7 +83,7 @@ def compile_code(s):
         
         if 'output' in response_data:
             result = response_data['output']
-            if result == viewprob[4]:
+            if str(result) == str(viewprob[4]):
                 Output = "Right answer and submitted"
                 print(Output)
                 db_user = db_user_profile.find_one({"email": email})
