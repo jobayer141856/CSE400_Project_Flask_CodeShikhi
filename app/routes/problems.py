@@ -19,7 +19,7 @@ def problems():
         for prob_title in db_admin_problemset.find():
             title_list.append(prob_title["problem_title"])
             title_id.append(prob_title["_id"])
-            prob_list[i] = [prob_title["_id"], str(prob_title["problem_title"]), str(prob_title["problem_details"]),str(prob_title["input"]),str(prob_title["output"]), int(len(prob_title["total_solved"]))]
+            prob_list[i] = [prob_title["_id"], str(prob_title["problem_title"]), str(prob_title["problem_details"]),str(prob_title["input"]),str(prob_title["output"]), str(len(prob_title["total_solved"]))]
             i+=1
         len_list = len(title_list)
         return render_template("problems.html", **locals())
@@ -65,11 +65,13 @@ def compile_code(s):
     print(code)
     if request.form['submit_button'] == "Submit":
         submit = True
+        StdIn = viewprob[3]
     # Create a payload with the code
         payload = {
             'clientId': 'b5976d432804e8b418c899eb84f0725a',
             'clientSecret': '4791c13dc4e6a1bde497a1a484bbed0c9e29881dcc145d8b4231f11336b869c',
             'script': code,
+            'stdin': StdIn,
             'language': 'c',
             'versionIndex': '0',
             'compileOnly': 'false'

@@ -17,7 +17,7 @@ def admin_problemset():
     for prob_title in db_admin_problemset.find():
         title_list.append(prob_title["problem_title"])
         title_id.append(prob_title["_id"])
-        prob_list[i] = [prob_title["_id"], str(prob_title["problem_title"]), str(prob_title["problem_details"]),str(prob_title["input"]),str(prob_title["output"])]
+        prob_list[i] = [prob_title["_id"], str(prob_title["problem_title"]), str(prob_title["problem_details"]),str(prob_title["input"]),str(prob_title["output"]),str(prob_title["total_solved"])]
         i+=1
     len_list = len(title_list) 
     is_post = False
@@ -48,8 +48,9 @@ def admin_add_problem():
         form_output = form_data["output"]
         form_source_code = form_data["source_code"]
         print(form_data)
+        solved = {}
         db_admin_problemset.insert_one(
-            {"problem_title": form_title, "problem_details": form_textarea , "input":form_input,  "output":form_output, "source_code":form_source_code})
+            {"problem_title": form_title, "problem_details": form_textarea , "input":form_input,  "output":form_output, "source_code":form_source_code, "total_solved": solved})
         return redirect(url_for('admin_problemset'))
     return render_template("admin_add_problem.html", **locals())
 
