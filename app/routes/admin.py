@@ -45,9 +45,10 @@ def admin_add_problem():
         form_textarea = form_data["details"]
         form_input = form_data["input"]
         form_output = form_data["output"]
+        form_source_code = form_data["source_code"]
         print(form_data)
         db_admin_problemset.insert_one(
-            {"problem_title": form_title, "problem_details": form_textarea , "input":form_input,  "output":form_output})
+            {"problem_title": form_title, "problem_details": form_textarea , "input":form_input,  "output":form_output, "source_code":form_source_code})
         return redirect(url_for('admin_problemset'))
     return render_template("admin_add_problem.html", **locals())
 
@@ -62,6 +63,7 @@ def edit(s):
     edprob.append(ed["problem_details"])
     edprob.append(ed["input"])
     edprob.append(ed["output"])
+    edprob.append(ed["source_code"])
     edprob.append(ed["_id"])
     if request.method=='POST':
         print("blog")
@@ -70,6 +72,7 @@ def edit(s):
         db_admin_problemset.update_one({"_id": ObjectId(s)}, {"$set" : {"problem_title" :request.form["title"]}})
         db_admin_problemset.update_one({"_id": ObjectId(s)}, {"$set" : {"input" :request.form["input"]}})
         db_admin_problemset.update_one({"_id": ObjectId(s)}, {"$set" : {"output" :request.form["output"]}})
+        db_admin_problemset.update_one({"_id": ObjectId(s)}, {"$set" : {"source_code" :request.form["source_code"]}})
         print("Updated")
         return redirect(url_for('admin_problemset'))
 

@@ -82,7 +82,10 @@ def compile_code(s):
             result = response_data['output']
             if result == viewprob[4]:
                 Output = "Right answer and submitted"
-                db_user = db_admin_profile.find_one(email)
+                print(Output)
+                db_user = db_user_profile.find_one({"email": email})
+                print(email)
+                print(db_user)
                 if db_user:
                     db_user_problem_solved.update_one({'_id':db_user['_id']},{"$set" : {"problem_id" :viewprob[0]}})
                     db_user_problem_solved.update_one({'_id':db_user['_id']},{"$set" : {"problem_title" :viewprob[1]}})
