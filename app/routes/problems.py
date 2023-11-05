@@ -4,10 +4,9 @@ import requests
 import stdin
 import json
 from app import *
+dict_for_solved_by_user = {}
 @app.route('/problems' , methods=['GET', "POST"])
-
 def problems():
-
     if "email" in session:
         email = session["email"]
         name = session["name"]
@@ -20,7 +19,7 @@ def problems():
         for prob_title in db_admin_problemset.find():
             title_list.append(prob_title["problem_title"])
             title_id.append(prob_title["_id"])
-            prob_list[i] = [prob_title["_id"], str(prob_title["problem_title"]), str(prob_title["problem_details"]),str(prob_title["input"]),str(prob_title["output"])]
+            prob_list[i] = [prob_title["_id"], str(prob_title["problem_title"]), str(prob_title["problem_details"]),str(prob_title["input"]),str(prob_title["output"]), int(len(prob_title["total_solved"]))]
             i+=1
         len_list = len(title_list)
         return render_template("problems.html", **locals())
@@ -55,6 +54,7 @@ def compile_code(s):
     viewprob.append(ed["problem_details"])
     viewprob.append(ed["input"])
     viewprob.append(ed["output"])
+    viewprob.append(ed["total_solved"])
 
     if "email" in session:
         email = session["email"]
@@ -78,23 +78,25 @@ def compile_code(s):
         response = requests.post(url, json=payload)
         response_data = response.json()
         print(response_data)
+        
         if 'output' in response_data:
             result = response_data['output']
             if result == viewprob[4]:
                 Output = "Right answer and submitted"
                 print(Output)
                 db_user = db_user_profile.find_one({"email": email})
-                print(email)
-                print(db_user)
-                if db_user:
-                    db_user_problem_solved.update_one({'_id':db_user['_id']},{"$set" : {"problem_id" :viewprob[0]}})
-                    db_user_problem_solved.update_one({'_id':db_user['_id']},{"$set" : {"problem_title" :viewprob[1]}})
-                    db_user_problem_solved.update_one({'_id':db_user['_id']},{"$set" : {"problem_details" :viewprob[2]}})
-                    db_user_problem_solved.update_one({'_id':db_user['_id']},{"$set" : {"input" :viewprob[3]}})
-                    db_user_problem_solved.update_one({'_id':db_user['_id']},{"$set" : {"output" :viewprob[4]}})
-                    db_user_problem_solved.update_one({'_id':db_user['_id']},{"$set" : {"source_code_solved_by_user" :code}})
+                dict_for_solved_by_user = dict(viewprob[5])
+                print(dict_for_solved_by_user)
+                if email in dict_for_solved_by_user.keys():
+                    dict_for_solved_by_user.update({email: code})
+                    print("if er moddhe", dict_for_solved_by_user)
+                else:
+                    dict_for_solved_by_user[email] = code
+                    print("else er moddhe" , dict_for_solved_by_user)
+                db_admin_problemset.update_one({'_id':ed['_id']}, {"$set" : {"total_solved" :dict_for_solved_by_user}})   
         else:
             result = 'Error: Failed to retrieve output.'
+            Output = "Wrong answer and not submitted"
             print(response.content)
         return render_template('problem_solve.html', **locals())
     
