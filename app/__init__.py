@@ -23,6 +23,7 @@ db_client = pymongo.MongoClient("mongodb://localhost:27017")
 
 db = db_client["users"]
 db_user_profile = db.user_profile
+db_user_problem_solved = db.user_problem_solved
 
 db_admin = db_client["admin"]
 db_admin_profile = db_admin.admin_profile

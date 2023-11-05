@@ -1,3 +1,4 @@
+import webbrowser
 from bson import ObjectId
 import requests
 import stdin
@@ -32,23 +33,38 @@ def view(s):
     p = 2
     c=0
     viewprob = []
+    if "email" in session:
+        email = session["email"]
+        name = session["name"]
+        email_true = True
     ed = db_admin_problemset.find_one({"_id": ObjectId(s)})
+    viewprob.append(ed["_id"])
     viewprob.append(ed["problem_title"])
     viewprob.append(ed["problem_details"])
     viewprob.append(ed["input"])
     viewprob.append(ed["output"])
-    viewprob.append(ed["_id"])
     return render_template("problem_solve.html", **locals())
 
+@app.route('/compile/<string:s>', methods=['POST'])
+def compile_code(s):
+    s =str(s)
+    viewprob = []
+    ed = db_admin_problemset.find_one({"_id": ObjectId(s)})
+    viewprob.append(ed["_id"])
+    viewprob.append(ed["problem_title"])
+    viewprob.append(ed["problem_details"])
+    viewprob.append(ed["input"])
+    viewprob.append(ed["output"])
 
-@app.route('/compile', methods=['POST'])
-def compile_code():
-    
+    if "email" in session:
+        email = session["email"]
+        name = session["name"]
+        email_true = True
     code = request.form['code']  # Get the user's code from the request
     url = 'https://api.jdoodle.com/v1/execute'  # Replace 'API_URL' with the actual API endpoint
     print(code)
-
     if request.form['submit_button'] == "Submit":
+        submit = True
     # Create a payload with the code
         payload = {
             'clientId': 'b5976d432804e8b418c899eb84f0725a',
@@ -64,10 +80,22 @@ def compile_code():
         print(response_data)
         if 'output' in response_data:
             result = response_data['output']
+            if result == viewprob[4]:
+                Output = "Right answer and submitted"
+                db_user = db_admin_profile.find_one(email)
+                if db_user:
+                    db_user_problem_solved.update_one({'_id':db_user['_id']},{"$set" : {"problem_id" :viewprob[0]}})
+                    db_user_problem_solved.update_one({'_id':db_user['_id']},{"$set" : {"problem_title" :viewprob[1]}})
+                    db_user_problem_solved.update_one({'_id':db_user['_id']},{"$set" : {"problem_details" :viewprob[2]}})
+                    db_user_problem_solved.update_one({'_id':db_user['_id']},{"$set" : {"input" :viewprob[3]}})
+                    db_user_problem_solved.update_one({'_id':db_user['_id']},{"$set" : {"output" :viewprob[4]}})
+                    db_user_problem_solved.update_one({'_id':db_user['_id']},{"$set" : {"source_code_solved_by_user" :code}})
         else:
             result = 'Error: Failed to retrieve output.'
             print(response.content)
-        return render_template('result.html', **locals())
+        return render_template('problem_solve.html', **locals())
     
     if request.form['Hints_button'] == "Hints":
-        return render_template('hints.html', **locals())
+        hints = True
+
+        return render_template('problem_solve.html', **locals())
