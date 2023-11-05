@@ -1,5 +1,5 @@
 from app import *
-@app.route('/contest')
+@app.route('/contest', methods=['GET', "POST"])
 def contest():
     if "email" in session:
         email = session["email"]
