@@ -34,6 +34,7 @@ def admin_problemset():
             probs.append(prob_view["problem_details"])
             probs.append(prob_view["input"])
             probs.append(prob_view["output"])
+            probs.append(prob_view["source_code"])
             is_prob = True
     return render_template("admin_problemset.html", **locals())
 
