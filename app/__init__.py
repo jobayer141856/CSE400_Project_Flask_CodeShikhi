@@ -45,3 +45,4 @@ from app.routes import verify
 from app.routes import SignOut
 from app.routes import admin_login
 from app.routes import admin_SignOut
+from app.routes import contest
