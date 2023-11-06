@@ -105,7 +105,7 @@ def compile_code(s):
         StdIn = viewprob[3]
         c+=1
         session["count"] = c
-    # Create a payload with the code
+        # Create a payload with the code
         payload = {
             'clientId': 'b5976d432804e8b418c899eb84f0725a',
             'clientSecret': '4791c13dc4e6a1bde497a1a484bbed0c9e29881dcc145d8b4231f11336b869c',
@@ -143,8 +143,9 @@ def compile_code(s):
             print(response.content)
         return render_template('problem_solve.html', **locals())
     
-    if request.form['Hints_button'] == "Hints":
+    elif request.form['submit_button'] == "Hints":
         hints = True
+        # print(request.form['hints_button'])
         c+=1
         session["count"] = c
         hints_for_code = viewprob[2] + 'For this Problem suggest the logic of this problem not source code for c progamming language'
@@ -152,7 +153,7 @@ def compile_code(s):
         print(response)
         return render_template('problem_solve.html', **locals())
     
-    if request.form['source_button'] == "Source Code":
+    elif request.form['submit_button'] == "Source Code":
         source = True
         source_code =  viewprob[6]
         print(source_code)
