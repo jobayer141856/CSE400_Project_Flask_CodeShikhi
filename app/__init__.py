@@ -28,6 +28,7 @@ db_user_problem_solved = db.user_problem_solved
 db_admin = db_client["admin"]
 db_admin_profile = db_admin.admin_profile
 db_admin_problemset = db_admin.problemset
+technical_issue_face = db_admin.contact_us
 
 app = Flask(__name__)
 app.config.from_object(__name__)
