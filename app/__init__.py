@@ -49,3 +49,4 @@ from app.routes import contest
 from app.routes import change_pass
 from app.routes import video_tutorial
 from app.routes import animation_tutorial
+from app.routes import contact
