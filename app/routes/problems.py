@@ -14,20 +14,8 @@ from langchain.chat_models import ChatOpenAI
 
 os.environ["OPENAI_API_KEY"] = "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"
 
-# # Read the file using the correct encoding
-# with open("data.txt", "r", encoding="utf-8") as f:
-#     text = f.read()
-
-# # Write the text back to a new file, ensuring it's in UTF-8 encoding
-# with open("data_utf8.txt", "w", encoding="utf-8") as f:
-#     f.write(text) 
-
-# loader = TextLoader("data_utf8.txt")
-# documents = loader.load()
 loader = TextLoader('app/routes/data.txt', encoding = 'UTF-8')
 
-# text_loader_kwargs={'autodetect_encoding': True}
-# loader = DirectoryLoader("./new_articles/", glob="./*.txt", loader_cls=TextLoader, loader_kwargs=text_loader_kwargs)
 index = VectorstoreIndexCreator().from_loaders([loader])
 
 def process_user_query(user_query):
