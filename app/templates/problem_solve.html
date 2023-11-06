@@ -20,9 +20,16 @@
 {%if hints %}
 <div class="mt-5 m-12">
   <h1 class="text-center">Hints For {{viewprob[1]}}</h1>
-    <p></p> class="text-center">{{ result }}</p>>
+  <textarea type="text" id="problem_update" rows="8" name= "output" class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="" disabled>{{response}}</textarea>
 </div>
 {%endif%}
+{%if source %}
+<div class="mt-5 m-12">
+  <h1 class="text-center">Hints For {{viewprob[1]}}</h1>
+  <textarea type="text" id="problem_update" rows="8" name= "output" class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="" disabled>{{source_code}}</textarea>
+</div>
+{%endif%}
+
      <form  method = "post">
       <div class="mt-5 m-12">
           <div class="mb-5 mt-5">

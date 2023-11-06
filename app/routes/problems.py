@@ -4,6 +4,40 @@ import requests
 import stdin
 import json
 from app import *
+import os
+import sys
+from langchain.document_loaders import TextLoader
+from langchain.document_loaders import DirectoryLoader
+from langchain.indexes import VectorstoreIndexCreator
+from langchain. llms import OpenAI
+from langchain.chat_models import ChatOpenAI
+
+os.environ["OPENAI_API_KEY"] = "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"
+
+# # Read the file using the correct encoding
+# with open("data.txt", "r", encoding="utf-8") as f:
+#     text = f.read()
+
+# # Write the text back to a new file, ensuring it's in UTF-8 encoding
+# with open("data_utf8.txt", "w", encoding="utf-8") as f:
+#     f.write(text) 
+
+# loader = TextLoader("data_utf8.txt")
+# documents = loader.load()
+loader = TextLoader('app/routes/data.txt', encoding = 'UTF-8')
+
+# text_loader_kwargs={'autodetect_encoding': True}
+# loader = DirectoryLoader("./new_articles/", glob="./*.txt", loader_cls=TextLoader, loader_kwargs=text_loader_kwargs)
+index = VectorstoreIndexCreator().from_loaders([loader])
+
+def process_user_query(user_query):
+    try:
+        # Call your langchain code with the user's query
+        response = index.query(user_query, ChatOpenAI())
+        return response
+    except Exception as e:
+        return f"Error: {str(e)}"
+
 dict_for_solved_by_user = {}
 @app.route('/problems' , methods=['GET', "POST"])
 def problems():
@@ -56,6 +90,7 @@ def compile_code(s):
     viewprob.append(ed["input"])
     viewprob.append(ed["output"])
     viewprob.append(ed["total_solved"])
+    viewprob.append(ed["source_code"])
 
     if "email" in session:
         email = session["email"]
@@ -112,8 +147,13 @@ def compile_code(s):
         hints = True
         c+=1
         session["count"] = c
+        hints_for_code = viewprob[2] + 'For this Problem suggest the logic of this problem not source code for c progamming language'
+        response = process_user_query(hints_for_code)
+        print(response)
         return render_template('problem_solve.html', **locals())
     
     if request.form['source_button'] == "Source Code":
-
+        source = True
+        source_code =  viewprob[6]
+        print(source_code)
         return render_template('problem_solve.html', **locals())
