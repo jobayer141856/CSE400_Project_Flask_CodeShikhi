@@ -35,6 +35,7 @@ def view(s):
     if "email" in session:
         email = session["email"]
         name = session["name"]
+        session["count"] = c
         email_true = True
     ed = db_admin_problemset.find_one({"_id": ObjectId(s)})
     viewprob.append(ed["_id"])
@@ -60,12 +61,15 @@ def compile_code(s):
         email = session["email"]
         name = session["name"]
         email_true = True
+        c = session["count"]
     code = request.form['code']  # Get the user's code from the request
     url = 'https://api.jdoodle.com/v1/execute'  # Replace 'API_URL' with the actual API endpoint
     print(code)
     if request.form['submit_button'] == "Submit":
         submit = True
         StdIn = viewprob[3]
+        c+=1
+        session["count"] = c
     # Create a payload with the code
         payload = {
             'clientId': 'b5976d432804e8b418c899eb84f0725a',
@@ -95,7 +99,9 @@ def compile_code(s):
                 else:
                     dict_for_solved_by_user[email] = code
                     print("else er moddhe" , dict_for_solved_by_user)
-                db_admin_problemset.update_one({'_id':ed['_id']}, {"$set" : {"total_solved" :dict_for_solved_by_user}})   
+                db_admin_problemset.update_one({'_id':ed['_id']}, {"$set" : {"total_solved" :dict_for_solved_by_user}})
+            else:
+                Output = "Wrong answer and not submitted"  
         else:
             result = 'Error: Failed to retrieve output.'
             Output = "Wrong answer and not submitted"
@@ -104,5 +110,10 @@ def compile_code(s):
     
     if request.form['Hints_button'] == "Hints":
         hints = True
+        c+=1
+        session["count"] = c
+        return render_template('problem_solve.html', **locals())
+    
+    if request.form['source_button'] == "Source Code":
 
         return render_template('problem_solve.html', **locals())
