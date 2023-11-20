@@ -136,7 +136,7 @@ def compile_code(s):
         # print(request.form['hints_button'])
         c+=1
         session["count"] = c
-        hints_for_code = viewprob[2] + 'For this Problem suggest the logic of this problem not source code for c progamming language and only suggest code of logic not full code'
+        hints_for_code = viewprob[2] + 'For this Problem suggest the logic of this problem not source code for c progamming language and only suggest Pseudocode'
         response = process_user_query(hints_for_code)
         print(response)
         return render_template('problem_solve.html', **locals())
